@@ -1,4 +1,4 @@
-import App from "@/Presentation/App";
+import App from "@/Presentation/View/App";
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 
