@@ -1,6 +1,7 @@
 import { Button, makeStyles, Text, tokens } from "@fluentui/react-components";
 import Footer from "@Presentation/View/Components/Footer";
 import Nav from "@Presentation/View/Components/Nav";
+import SVGIllustration from "@Presentation/View/Components/SVGIllustration";
 import React from "react";
 
 function Home(): React.JSX.Element {
@@ -41,7 +42,9 @@ function Home(): React.JSX.Element {
 								</div>
 							</div>
 
-							<div className={classes.graphicPlaceholder}>Área para gráfico / ilustración</div>
+							<div className={classes.graphicPlaceholder}>
+								<SVGIllustration style={{ width: "100%", height: "100%" }} />
+							</div>
 						</div>
 					</section>
 				</main>
@@ -100,8 +103,6 @@ const useStyles = makeStyles({
 		width: "100%",
 		minHeight: "340px",
 		borderRadius: "12px",
-		background: `repeating-linear-gradient(45deg, ${tokens.colorNeutralStroke1} 0 10px, transparent 10px 20px)`,
-		outline: `2px dashed ${tokens.colorNeutralStroke1}`,
 		display: "flex",
 		alignItems: "center",
 		justifyContent: "center",
