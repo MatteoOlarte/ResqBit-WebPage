@@ -56,7 +56,17 @@ function Nav(): React.JSX.Element {
 								className={({ isActive }) => clsx("nav-link", isActive && "active")}
 								aria-current="page"
 							>
-								Mapa de Procesos
+								Normativa ISO
+							</NavLink>
+						</li>
+
+						<li className="nav-item">
+							<NavLink
+								to="/estrategias"
+								className={({ isActive }) => clsx("nav-link", isActive && "active")}
+								aria-current="page"
+							>
+								Estrategias
 							</NavLink>
 						</li>
 

@@ -10,7 +10,7 @@ function Home(): React.JSX.Element {
 			style={{
 				display: "grid",
 				gridTemplateRows: "auto 1fr auto",
-				height: "100vh",
+				minHeight: "100vh",
 			}}
 		>
 			<div>
