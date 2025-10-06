@@ -1,5 +1,5 @@
 import type { BrandVariants, Theme } from "@fluentui/react-components";
-import { createLightTheme } from "@fluentui/react-components";
+import { createDarkTheme, createLightTheme } from "@fluentui/react-components";
 
 const lightThemeBrand: BrandVariants = {
 	10: "#1c0505",
@@ -21,3 +21,5 @@ const lightThemeBrand: BrandVariants = {
 };
 
 export const resqBitLightTheme: Theme = createLightTheme(lightThemeBrand);
+
+export const resqBitDarkTheme: Theme = createDarkTheme(lightThemeBrand);

@@ -1,13 +1,21 @@
 import { resqBitLightTheme } from "@/Presentation/Base/colors";
-import { Button, FluentProvider } from "@fluentui/react-components";
-import "./App.css";
+import { FluentProvider } from "@fluentui/react-components";
+import Home from "@Presentation/View/Pages/Home";
+import { BrowserRouter, useRoutes } from "react-router-dom";
 
 function App() {
 	return (
 		<FluentProvider theme={resqBitLightTheme}>
-			<Button appearance="primary">Hello World</Button>
+			<BrowserRouter>
+				<Routes />
+			</BrowserRouter>
 		</FluentProvider>
 	);
 }
+
+const Routes = () => {
+	let routes = useRoutes([{ path: "/", element: <Home /> }]);
+	return routes;
+};
 
 export default App;
