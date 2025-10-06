@@ -16,8 +16,8 @@ function App() {
 
 const Routes = () => {
 	let routes = useRoutes([
-		{ path: "/", element: <Home /> },
-		{ path: "/mapa-de-procesos", element: <SIG /> },
+		{ path: "ResqBit-WebPage/", element: <Home /> },
+		{ path: "ResqBit-WebPage/mapa-de-procesos", element: <SIG /> },
 	]);
 	return routes;
 };

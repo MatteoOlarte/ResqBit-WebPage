@@ -16,7 +16,7 @@ function Nav(): React.JSX.Element {
 	return (
 		<nav className={clsx("navbar", "navbar-expand-lg", classes.root)}>
 			<div className="container w-100 mx-auto">
-				<NavLink to="/" className="navbar-brand">
+				<NavLink to="/ResqBit-WebPage" className="navbar-brand">
 					<SVGIcon width={32} height={32} className="me-2" />
 
 					<Text
@@ -45,14 +45,14 @@ function Nav(): React.JSX.Element {
 				<div className="collapse navbar-collapse" id={navId}>
 					<ul className="navbar-nav ms-auto mb-2 mb-lg-0">
 						<li className="nav-item">
-							<NavLink to="/" className={({ isActive }) => clsx("nav-link", isActive && "active")} aria-current="page">
+							<NavLink to="/ResqBit-WebPage" className={({ isActive }) => clsx("nav-link", isActive && "active")} aria-current="page">
 								Inicio
 							</NavLink>
 						</li>
 
 						<li className="nav-item">
 							<NavLink
-								to="/mapa-de-procesos"
+								to="/ResqBit-WebPage/mapa-de-procesos"
 								className={({ isActive }) => clsx("nav-link", isActive && "active")}
 								aria-current="page"
 							>
