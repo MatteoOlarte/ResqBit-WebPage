@@ -1,21 +1,11 @@
 import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
-import {
-	Card,
-	CardHeader,
-	LargeTitle,
-	makeStyles,
-	Subtitle2,
-	Tab,
-	TabList,
-	Text,
-	tokens,
-} from "@fluentui/react-components";
+import { Card, CardHeader, LargeTitle, Subtitle2, Tab, TabList, Text, tokens } from "@fluentui/react-components";
 import Footer from "@Presentation/View/Components/Footer";
 import Nav from "@Presentation/View/Components/Nav";
 import React, { useState } from "react";
 
 function SIG(): React.JSX.Element {
-	const classes = useStyles();
+	// const classes = useStyles();
 	const [selectedTab, setSelectedTab] = useState<TabValue>("tab1");
 
 	const onTabSelect = (_: SelectTabEvent, data: SelectTabData) => {
@@ -240,14 +230,14 @@ function ProcessSection({ title, items }: { title: string; items: string[] }) {
 	);
 }
 
-const useStyles = makeStyles({
-	Header: {
-		fontFamily: "Benguiat Regular, var(--font-family-base)",
-		color: tokens.colorNeutralForeground1,
-		fontSize: "clamp(1.2rem, 4vw, 2.5rem)",
-		lineHeight: 1.1,
-		margin: 0,
-	},
-});
+// const useStyles = makeStyles({
+// 	Header: {
+// 		fontFamily: "Benguiat Regular, var(--font-family-base)",
+// 		color: tokens.colorNeutralForeground1,
+// 		fontSize: "clamp(1.2rem, 4vw, 2.5rem)",
+// 		lineHeight: 1.1,
+// 		margin: 0,
+// 	},
+// });
 
 export default SIG;

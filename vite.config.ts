@@ -11,4 +11,5 @@ export default defineConfig({
 			"@Presentation": path.resolve(__dirname, "./src/Presentation"),
 		},
 	},
+	base: "https://matteoolarte.github.io/ResqBit-WebPage",
 });
