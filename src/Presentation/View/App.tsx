@@ -7,7 +7,7 @@ import { BrowserRouter, useRoutes } from "react-router-dom";
 function App() {
 	return (
 		<FluentProvider theme={resqBitLightTheme}>
-			<BrowserRouter>
+			<BrowserRouter basename="/ResqBit-WebPage">
 				<Routes />
 			</BrowserRouter>
 		</FluentProvider>
@@ -16,8 +16,8 @@ function App() {
 
 const Routes = () => {
 	let routes = useRoutes([
-		{ path: "ResqBit-WebPage/", element: <Home /> },
-		{ path: "ResqBit-WebPage/mapa-de-procesos", element: <SIG /> },
+		{ path: "/", element: <Home /> },
+		{ path: "/mapa-de-procesos", element: <SIG /> },
 	]);
 	return routes;
 };

@@ -2,11 +2,7 @@ import { resqBitDarkTheme } from "@/Presentation/Base/colors";
 import { Field, FluentProvider, Input, Subtitle2, Text, makeStyles, tokens } from "@fluentui/react-components";
 import SVGIcon from "@Presentation/View/Components/SVGIcon";
 import React from "react";
-
-const useStyles = makeStyles({
-	root: { background: tokens.colorNeutralBackgroundStatic },
-	text: { color: tokens.colorNeutralForeground1, margin: 0 },
-});
+import { NavLink } from "react-router-dom";
 
 function Footer(): React.JSX.Element {
 	const classes = useStyles();
@@ -43,14 +39,28 @@ function Footer(): React.JSX.Element {
 
 						<div className="col-12 col-md-4">
 							<div className="mb-3">
-                <Subtitle2 className={classes.text}>Sobre Nosotros</Subtitle2>
-              </div>
+								<Subtitle2 className={classes.text}>Sobre Nosotros</Subtitle2>
+							</div>
 
-              <div className="d-flex flex-column">
-                <Text as="p" className={classes.text}>
-                  Mapa de Procesos
-                </Text>
-              </div>
+							<div className="d-flex flex-column">
+								<NavLink to="/mapa-de-procesos" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Normativas ISO
+									</Text>
+								</NavLink>
+
+								<NavLink to="/mapa-de-procesos" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Mapa de Procesos
+									</Text>
+								</NavLink>
+
+								<NavLink to="/" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Capasides de Negocio
+									</Text>
+								</NavLink>
+							</div>
 						</div>
 
 						<div className="col-12 col-md-4">
@@ -68,5 +78,11 @@ function Footer(): React.JSX.Element {
 		</FluentProvider>
 	);
 }
+
+const useStyles = makeStyles({
+	root: { background: tokens.colorNeutralBackgroundStatic },
+	text: { color: tokens.colorNeutralForeground1, margin: 0 },
+	link: { textDecoration: "none" },
+});
 
 export default Footer;
