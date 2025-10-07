@@ -1,5 +1,21 @@
 import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
-import { Card, CardHeader, LargeTitle, Subtitle2, Tab, TabList, Text, tokens } from "@fluentui/react-components";
+import {
+	Button,
+	Card,
+	CardHeader,
+	Divider,
+	LargeTitle,
+	List,
+	ListItem,
+	Popover,
+	PopoverSurface,
+	PopoverTrigger,
+	Subtitle2,
+	Tab,
+	TabList,
+	Text,
+} from "@fluentui/react-components";
+import { MoreHorizontalRegular } from "@fluentui/react-icons";
 import Footer from "@Presentation/View/Components/Footer";
 import Nav from "@Presentation/View/Components/Nav";
 import React, { useState } from "react";
@@ -23,6 +39,7 @@ function SIG(): React.JSX.Element {
 			<div>
 				<Nav />
 			</div>
+
 			<div>
 				<main className="container w-100 mx-auto my-5">
 					<section className="mb-3">
@@ -35,20 +52,17 @@ function SIG(): React.JSX.Element {
 							normativa ISO y en procesos claros y auditables.
 						</Text>
 					</section>
-					<section>
+
+					<section className="mb-4">
 						<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-							<Tab value="tab1">Procesos Estratégicos</Tab>
-							<Tab value="tab2">Procesos Misionales</Tab>
-							<Tab value="tab3">Procesos de Apoyo</Tab>
+							<Tab value="tab1">Mapa de Procesos</Tab>
 						</TabList>
 					</section>
-					<div className="mt-4">
-						{selectedTab === "tab1" && <StrategicProcesses />}
-						{selectedTab === "tab2" && <MissionProcesses />}
-						{selectedTab === "tab3" && <SupportProcesses />}
-					</div>
+
+					<Section1 />
 				</main>
 			</div>
+
 			<div>
 				<Footer />
 			</div>
@@ -56,177 +70,208 @@ function SIG(): React.JSX.Element {
 	);
 }
 
-function StrategicProcesses() {
-	return (
-		<Card className="mb-4">
-			<CardHeader>
-				<Subtitle2 as="h2">Procesos Estratégicos</Subtitle2>
-			</CardHeader>
-			<div style={{ display: "grid", gap: "1.5rem" }}>
-				<ProcessSection
-					title="Planificación Estratégica"
-					items={[
-						"Análisis DOFA (Contexto de la organización).",
-						"Definición de objetivos de calidad, medio ambiente y SST.",
-						"Establecimiento de políticas corporativas.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión de Riesgos y Oportunidades"
-					items={["Identificación de amenazas y oportunidades.", "Evaluación de cambios normativos y tecnológicos."]}
-				/>
-				<ProcessSection
-					title="Gestión de Partes Interesadas"
-					items={[
-						"Identificación y análisis de necesidades.",
-						"Comunicación y reporte a clientes, reguladores y socios.",
-					]}
-				/>
-				<ProcessSection
-					title="Revisión por la Dirección"
-					items={["Evaluación del desempeño del SIG.", "Toma de decisiones correctivas y de mejora."]}
-				/>
-			</div>
-		</Card>
-	);
-}
+function Section1() {
+	const ListItem_ = ({ title, children }: { title: string; children: React.ReactNode }) => {
+		return (
+			<ListItem>
+				<Popover withArrow>
+					<PopoverTrigger>
+						<div className="d-flex flex-row justify-content-between align-items-center py-2 px-3 m-0">
+							<Text as="h3" size={300} className="m-0">
+								{title}
+							</Text>
 
-function MissionProcesses() {
-	return (
-		<Card className="mb-4">
-			<CardHeader>
-				<Subtitle2 as="h2">Procesos Misionales (Clave)</Subtitle2>
-			</CardHeader>
-			<div style={{ display: "grid", gap: "1.5rem" }}>
-				<ProcessSection
-					title="Auditoría y Diagnóstico"
-					items={[
-						"Auditorías internas y externas (ISO 9001, 14001, 27001, 45001).",
-						"Evaluación de vulnerabilidades (OpenVAS, Nessus).",
-						"Pruebas de RedTeam, OWISAM e ingeniería social.",
-					]}
-				/>
-				<ProcessSection
-					title="Consultoría y Asesoría"
-					items={[
-						"Implementación de sistemas de gestión.",
-						"Planes de mejora continua.",
-						"Transformación digital y cumplimiento normativo.",
-					]}
-				/>
-				<ProcessSection
-					title="Desarrollo de Soluciones BI"
-					items={[
-						"Modelado y validación de datos.",
-						"Creación de tableros en Power BI.",
-						"Capacitación y soporte post-implementación.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión de Ciberseguridad"
-					items={[
-						"Instalación y configuración de SIEM (Wazuh/Splunk).",
-						"Monitoreo y respuesta a incidentes (EDR: Defender/CrowdStrike).",
-						"Gestión de identidad y acceso (IAM/SSO: Azure AD/Okta).",
-					]}
-				/>
-				<ProcessSection
-					title="Certificación ISO"
-					items={[
-						"Preparación para auditorías externas.",
-						"Seguimiento de no conformidades.",
-						"Emisión de reportes ejecutivos.",
-					]}
-				/>
-			</div>
-		</Card>
-	);
-}
+							<Button icon={<MoreHorizontalRegular />} size="small" appearance="subtle" />
+						</div>
+					</PopoverTrigger>
 
-function SupportProcesses() {
-	return (
-		<Card className="mb-4">
-			<CardHeader>
-				<Subtitle2 as="h2">Procesos de Apoyo</Subtitle2>
-			</CardHeader>
-			<div style={{ display: "grid", gap: "1.5rem" }}>
-				<ProcessSection
-					title="Gestión de Recursos Humanos"
-					items={[
-						"Reclutamiento y selección.",
-						"Capacitación en normas ISO, seguridad y herramientas digitales.",
-						"Evaluación del desempeño y bienestar laboral.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión Tecnológica y de Infraestructura"
-					items={[
-						"Administración de plataformas en la nube (Azure/AWS).",
-						"Mantenimiento de equipos y software.",
-						"Soporte técnico y gestión de incidentes TI.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión Documental"
-					items={[
-						"Control de documentos y registros (SharePoint/Github).",
-						"Versiones y cifrado de informes.",
-						"Respaldo y recuperación de información.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión Comercial y Marketing"
-					items={[
-						"Prospección y fidelización de clientes.",
-						"Estrategias de marketing digital (redes sociales, ads).",
-						"Alianzas estratégicas y networking.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión Financiera y Administrativa"
-					items={[
-						"Contabilidad y facturación (Helisa).",
-						"Presupuestos y control de gastos.",
-						"Gestión de proveedores y contratos.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión de la Seguridad de la Información"
-					items={[
-						"Protección de activos de información.",
-						"Políticas de acceso y cifrado.",
-						"Auditorías internas de ciberseguridad.",
-					]}
-				/>
-				<ProcessSection
-					title="Gestión Ambiental y Sostenibilidad"
-					items={[
-						"Reducción de huella de carbono.",
-						"Digitalización de procesos.",
-						"Selección de proveedores con criterios ambientales.",
-					]}
-				/>
-			</div>
-		</Card>
-	);
-}
+					<PopoverSurface>
+						<div>
+							<Text as="h3" size={300} weight="semibold" className="mb-3" block>
+								{title}
+							</Text>
 
-function ProcessSection({ title, items }: { title: string; items: string[] }) {
+							{children}
+						</div>
+					</PopoverSurface>
+				</Popover>
+			</ListItem>
+		);
+	};
+
 	return (
-		<Card className="mb-2" style={{ background: tokens.colorNeutralBackground3 }}>
-			<CardHeader>
-				<Subtitle2 as="h3">{title}</Subtitle2>
-			</CardHeader>
-			<ul style={{ margin: 0, paddingLeft: "1.2rem" }}>
-				{items.map((item, idx) => (
-					<li key={idx} style={{ marginBottom: "0.5rem", color: tokens.colorNeutralForeground2 }}>
-						<Text as="span" size={300}>
-							{item}
-						</Text>
-					</li>
-				))}
-			</ul>
-		</Card>
+		<section className="row gy-4">
+			<div className="col-12 col-lg-6">
+				<Card appearance="outline" className="h-100">
+					<CardHeader header={<Subtitle2 as="h2">Procesos Estratégicos</Subtitle2>} />
+
+					<article>
+						<List>
+							<ListItem_ title="Planificación Estratégica">
+								<ul>
+									<li>Análisis DOFA (Contexto de la organización).</li>
+									<li>Definición de objetivos de calidad, medio ambiente y SST.</li>
+									<li>Establecimiento de políticas corporativas.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión de Riesgos y Oportunidades">
+								<ul>
+									<li>Identificación de amenazas y oportunidades.</li>
+									<li>Evaluación de cambios normativos y tecnológicos.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión de Partes Interesadas">
+								<ul>
+									<li>Identificación y análisis de necesidades.</li>
+									<li>Comunicación y reporte a clientes, reguladores y socios.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Revisión por la Dirección">
+								<ul>
+									<li>Evaluación del desempeño del SIG.</li>
+									<li>Toma de decisiones correctivas y de mejora.</li>
+								</ul>
+							</ListItem_>
+						</List>
+					</article>
+				</Card>
+			</div>
+
+			<div className="col-12 col-lg-6">
+				<Card appearance="outline" className="h-100">
+					<CardHeader header={<Subtitle2 as="h2">Procesos Misionales (Clave)</Subtitle2>} />
+
+					<article>
+						<List>
+							<ListItem_ title="Auditoría y Diagnóstico">
+								<ul>
+									<li>Auditorías internas y externas (ISO 9001, 14001, 27001, 45001).</li>
+									<li>Evaluación de vulnerabilidades (OpenVAS, Nessus).</li>
+									<li>Pruebas de RedTeam, OWISAM e ingeniería social.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Consultoría y Asesoría">
+								<ul>
+									<li>Implementación de sistemas de gestión.</li>
+									<li>Planes de mejora continua.</li>
+									<li>Transformación digital y cumplimiento normativo.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Desarrollo de Soluciones BI">
+								<ul>
+									<li>Modelado y validación de datos.</li>
+									<li>Creación de tableros en Power BI.</li>
+									<li>Capacitación y soporte post-implementación.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Certificación ISO">
+								<ul>
+									<li>Preparación para auditorías externas.</li>
+									<li>Seguimiento de no conformidades.</li>
+									<li>Emisión de reportes ejecutivos.</li>
+								</ul>
+							</ListItem_>
+						</List>
+					</article>
+				</Card>
+			</div>
+
+			<div className="col-12">
+				<Card appearance="outline">
+					<CardHeader header={<Subtitle2 as="h2">Procesos de Apoyo</Subtitle2>} />
+
+					<article>
+						<List>
+							<ListItem_ title="Gestión de Recursos Humanos">
+								<ul>
+									<li>Reclutamiento y selección.</li>
+									<li>Capacitación en normas ISO, seguridad y herramientas digitales.</li>
+									<li>Evaluación del desempeño y bienestar laboral.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión Tecnológica y de Infraestructura">
+								<ul>
+									<li>Administración de plataformas en la nube (Azure/AWS).</li>
+									<li>Mantenimiento de equipos y software.</li>
+									<li>Soporte técnico y gestión de incidentes TI.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión Documental">
+								<ul>
+									<li>Control de documentos y registros (SharePoint/Github).</li>
+									<li>Versiones y cifrado de informes.</li>
+									<li>Respaldo y recuperación de información.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión Comercial y Marketing">
+								<ul>
+									<li>Prospección y fidelización de clientes.</li>
+									<li>Estrategias de marketing digital (redes sociales, ads).</li>
+									<li>Alianzas estratégicas y networking.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión Financiera y Administrativa">
+								<ul>
+									<li>Contabilidad y facturación (Helisa).</li>
+									<li>Presupuestos y control de gastos.</li>
+									<li>Gestión de proveedores y contratos.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión de la Seguridad de la Información">
+								<ul>
+									<li>Protección de activos de información.</li>
+									<li>Políticas de acceso y cifrado.</li>
+									<li>Auditorías internas de ciberseguridad.</li>
+								</ul>
+							</ListItem_>
+
+							<Divider />
+
+							<ListItem_ title="Gestión Ambiental y Sostenibilidad">
+								<ul>
+									<li>Reducción de huella de carbono.</li>
+									<li>Digitalización de procesos.</li>
+									<li>Selección de proveedores con criterios ambientales.</li>
+								</ul>
+							</ListItem_>
+						</List>
+					</article>
+				</Card>
+			</div>
+		</section>
 	);
 }
 
