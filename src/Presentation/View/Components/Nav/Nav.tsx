@@ -62,6 +62,16 @@ function Nav(): React.JSX.Element {
 
 						<li className="nav-item">
 							<NavLink
+								to="/arquitectura"
+								className={({ isActive }) => clsx("nav-link", isActive && "active")}
+								aria-current="page"
+							>
+								Arquitectura
+							</NavLink>
+						</li>
+
+						<li className="nav-item">
+							<NavLink
 								to="/estrategias"
 								className={({ isActive }) => clsx("nav-link", isActive && "active")}
 								aria-current="page"
