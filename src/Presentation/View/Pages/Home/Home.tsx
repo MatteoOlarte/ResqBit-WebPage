@@ -190,6 +190,9 @@ const useStyles = makeStyles({
 		display: "grid",
 		gridTemplateColumns: "repeat(auto-fit, minmax(450px, 1fr))",
 		gap: "1.75rem",
+		"@media (max-width: 450px)": {
+			gridTemplateColumns: "1fr",
+		},
 	},
 	capabilityIconPlaceholder: {
 		minWidth: "44px",

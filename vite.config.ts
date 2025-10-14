@@ -12,4 +12,7 @@ export default defineConfig({
 		},
 	},
 	base: "https://matteoolarte.github.io/ResqBit-WebPage",
+	server: {
+		host: '0.0.0.0',
+	},
 });
