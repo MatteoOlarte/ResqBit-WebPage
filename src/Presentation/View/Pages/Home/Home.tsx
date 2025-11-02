@@ -7,6 +7,7 @@ import React from "react";
 
 function Home(): React.JSX.Element {
 	const classes = useStyles();
+	
 	return (
 		<div
 			style={{

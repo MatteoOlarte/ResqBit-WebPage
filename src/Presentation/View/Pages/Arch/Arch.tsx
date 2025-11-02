@@ -5,7 +5,6 @@ import {
 	AccordionItem,
 	AccordionPanel,
 	Card,
-	CardFooter,
 	CardHeader,
 	LargeTitle,
 	MessageBar,
@@ -20,6 +19,8 @@ import {
 	TabList,
 	Text,
 	Title2,
+	makeStyles,
+	tokens,
 } from "@fluentui/react-components";
 import Footer from "@Presentation/View/Components/Footer";
 import Nav from "@Presentation/View/Components/Nav";
@@ -84,6 +85,8 @@ function Main() {
 }
 
 function SectionE() {
+	const classes = useStyles();
+
 	return (
 		<div>
 			<div className="mb-4">
@@ -182,18 +185,16 @@ function SectionE() {
 							</Accordion>
 						</article>
 
-						<CardFooter>
-							<MessageBar shape="rounded" className="w-100">
-								<MessageBarBody>
-									<MessageBarTitle>Outputs clave</MessageBarTitle>
-									Lista de oportunidades, work packages y matriz de racionalización.
-								</MessageBarBody>
-							</MessageBar>
-						</CardFooter>
+						<MessageBar shape="rounded" className="w-100">
+							<MessageBarBody>
+								<MessageBarTitle>Outputs clave</MessageBarTitle>
+								Lista de oportunidades, work packages y matriz de racionalización.
+							</MessageBarBody>
+						</MessageBar>
 					</Card>
 				</div>
 
-				<div className="col-12 col-lg-6">
+				{/* <div className="col-12 col-lg-6">
 					<Card appearance="outline" className="d-flex flex-column h-100">
 						<CardHeader header={<Subtitle2 as="h3">Principales Objetivos de la Fase E</Subtitle2>} />
 
@@ -276,7 +277,7 @@ function SectionE() {
 							</Accordion>
 						</article>
 
-						<Popover size="small"  withArrow>
+						<Popover size="small" withArrow>
 							<PopoverTrigger>
 								<MessageBar shape="rounded">
 									<MessageBarBody>
@@ -295,7 +296,7 @@ function SectionE() {
 							</PopoverSurface>
 						</Popover>
 					</Card>
-				</div>
+				</div> */}
 			</div>
 
 			<div className="mb-5">
@@ -308,5 +309,35 @@ function SectionE() {
 		</div>
 	);
 }
+
+const useStyles = makeStyles({
+	compact: {
+		width: "600px",
+	},
+	resizableArea: {
+		display: "flex",
+		flexDirection: "column",
+		padding: "30px 10px",
+		gap: "10px",
+		border: `2px solid ${tokens.colorBrandBackground}`,
+		position: "relative",
+		overflow: "hidden",
+
+		"::after": {
+			content: `'Resizable Area'`,
+			position: "absolute",
+			padding: "1px 4px 1px",
+			top: "-2px",
+			left: "-2px",
+			fontFamily: "monospace",
+			fontSize: "15px",
+			fontWeight: 900,
+			lineHeight: 1,
+			letterSpacing: "1px",
+			color: tokens.colorNeutralForegroundOnBrand,
+			backgroundColor: tokens.colorBrandBackground,
+		},
+	},
+});
 
 export default Arch;
