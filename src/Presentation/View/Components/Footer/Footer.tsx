@@ -38,26 +38,38 @@ function Footer(): React.JSX.Element {
 						</div>
 
 						<div className="col-12 col-md-4">
-							<div className="mb-3">
+							<div className="mb-2">
 								<Subtitle2 className={classes.text}>Sobre Nosotros</Subtitle2>
 							</div>
 
-							<div className="d-flex flex-column">
-								<NavLink to="/mapa-de-procesos" className={classes.link}>
-									<Text as="p" className={classes.text}>
-										Normativas ISO
-									</Text>
-								</NavLink>
-
-								<NavLink to="/mapa-de-procesos" className={classes.link}>
-									<Text as="p" className={classes.text}>
-										Mapa de Procesos
-									</Text>
-								</NavLink>
-
+							<div className="d-flex flex-column mb-3">
 								<NavLink to="/" className={classes.link}>
 									<Text as="p" className={classes.text}>
 										Capasides de Negocio
+									</Text>
+								</NavLink>
+							</div>
+
+							<div className="mb-2">
+								<Subtitle2 className={classes.text}>Stakeholders</Subtitle2>
+							</div>
+
+							<div className="d-flex flex-column mb-3">
+								<NavLink to="/stakeholders/iso-standards" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Normativa ISO
+									</Text>
+								</NavLink>
+
+								<NavLink to="/stakeholders/leadership-and-governance" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Liderazgo y Gobernanza
+									</Text>
+								</NavLink>
+
+								<NavLink to="/stakeholders/faq" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										FAQ
 									</Text>
 								</NavLink>
 							</div>
