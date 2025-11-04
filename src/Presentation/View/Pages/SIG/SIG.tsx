@@ -1,23 +1,23 @@
+import heroImage from "@/assets/SIG/Hero-ISO-9001.png";
 import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
 import {
 	Button,
 	Card,
 	CardHeader,
 	Divider,
-	LargeTitle,
 	List,
 	ListItem,
 	Popover,
 	PopoverSurface,
 	PopoverTrigger,
 	Subtitle2,
-	Tab,
-	TabList,
 	Text,
+	Title1,
 } from "@fluentui/react-components";
 import { MoreHorizontalRegular } from "@fluentui/react-icons";
 import Footer from "@Presentation/View/Components/Footer";
-import React, { useState } from "react";
+import Hero from "@Presentation/View/Components/Hero";
+import { useState } from "react";
 
 function SIG(): React.JSX.Element {
 	// const classes = useStyles();
@@ -35,11 +35,14 @@ function SIG(): React.JSX.Element {
 				minHeight: "100vh",
 			}}
 		>
-			<main className="container w-100 mx-auto my-5">
-				<section className="mb-3">
-					<LargeTitle as="h1" align="start" block>
+			<main>
+				<Hero title="Normativa ISO" image={heroImage} />
+
+				<section className="container mb-4">
+					<Title1 as="h2" align="start" block>
 						Normativa ISO
-					</LargeTitle>
+					</Title1>
+
 					<Text as="p" size={400} style={{ marginBottom: "2rem" }}>
 						En ResqBit, entendemos que la gestión eficaz de la seguridad de la información es crucial para la excelencia
 						operativa y el cumplimiento normativo. Nuestro Sistema Integrado de Gestión (SIG) se basa en la normativa
@@ -47,13 +50,13 @@ function SIG(): React.JSX.Element {
 					</Text>
 				</section>
 
-				<section className="mb-4">
-					<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-						<Tab value="tab1">Mapa de Procesos</Tab>
-					</TabList>
-				</section>
+				<section className="container mb-4">
+					<Title1 as="h2" align="start" className="mb-3" block>
+						Mapa de Procesos
+					</Title1>
 
-				<Section1 />
+					<Section1 />
+				</section>
 			</main>
 
 			<Footer />
@@ -265,15 +268,5 @@ function Section1() {
 		</section>
 	);
 }
-
-// const useStyles = makeStyles({
-// 	Header: {
-// 		fontFamily: "Benguiat Regular, var(--font-family-base)",
-// 		color: tokens.colorNeutralForeground1,
-// 		fontSize: "clamp(1.2rem, 4vw, 2.5rem)",
-// 		lineHeight: 1.1,
-// 		margin: 0,
-// 	},
-// });
 
 export default SIG;
