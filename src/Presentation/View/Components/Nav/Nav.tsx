@@ -4,17 +4,12 @@ import clsx from "clsx";
 import React, { useId } from "react";
 import { NavLink } from "react-router-dom";
 
-const useStyles = makeStyles({
-	root: { backgroundColor: tokens.colorNeutralBackground2 },
-	header: { color: tokens.colorBrandBackground, verticalAlign: "middle" },
-});
-
 function Nav(): React.JSX.Element {
 	const navId = useId();
 	const classes = useStyles();
 
 	return (
-		<nav className={clsx("navbar", "navbar-expand-lg", classes.root)}>
+		<nav className={clsx("navbar", "navbar-expand-lg", "sticky-top", classes.root)}>
 			<div className="container w-100 mx-auto">
 				<NavLink to="/" className="navbar-brand">
 					<SVGIcon width={32} height={32} className="me-2" />
@@ -95,5 +90,17 @@ function Nav(): React.JSX.Element {
 		</nav>
 	);
 }
+
+const useStyles = makeStyles({
+	root: {
+		backgroundColor: `color-mix(in srgb, ${tokens.colorNeutralBackground2} 40%, transparent)`,
+		borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
+		backdropFilter: "saturate(180%) blur(20px)",
+	},
+	header: {
+		color: tokens.colorBrandBackground,
+		verticalAlign: "middle"
+	},
+});
 
 export default Nav;

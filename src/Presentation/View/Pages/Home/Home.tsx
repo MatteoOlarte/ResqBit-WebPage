@@ -1,110 +1,103 @@
 import Illustration from "@/assets/Home/Illustration.png";
 import { Button, Card, CardHeader, LargeTitle, makeStyles, Text, tokens } from "@fluentui/react-components";
 import Footer from "@Presentation/View/Components/Footer";
-import Nav from "@Presentation/View/Components/Nav";
 import clsx from "clsx";
 import React from "react";
 
 function Home(): React.JSX.Element {
 	const classes = useStyles();
-	
+
 	return (
 		<div
 			style={{
 				display: "grid",
-				gridTemplateRows: "auto 1fr auto",
+				gridTemplateRows: "1fr auto",
 				minHeight: "100vh",
 			}}
 		>
-			<div>
-				<Nav />
-			</div>
-			<div>
-				<main>
-					<section className={clsx(classes.heroWrapper, "mb-5")}>
-						<div className={classes.hero}>
-							<div className={classes.heroInner}>
-								<Text className={classes.heroTitle} weight="semibold" as="h1">
-									Del caos a la calma
-									<span className={classes.heroTitleAccent}>en un bit</span>
-								</Text>
+			<main>
+				<section className={clsx(classes.heroWrapper, "mb-5")}>
+					<div className={classes.hero}>
+						<div className={classes.heroInner}>
+							<Text className={classes.heroTitle} weight="semibold" as="h1">
+								Del caos a la calma
+								<span className={classes.heroTitleAccent}>en un bit</span>
+							</Text>
 
-								<Text className={classes.heroSubtitle} as="p">
-									Brindar a PYMES del sector tecnológico soluciones de auditoría y mejora continua en Business
-									Intelligence, Seguridad de la Información y Certificaciones ISO.
-								</Text>
+							<Text className={classes.heroSubtitle} as="p">
+								Brindar a PYMES del sector tecnológico soluciones de auditoría y mejora continua en Business
+								Intelligence, Seguridad de la Información y Certificaciones ISO.
+							</Text>
 
-								<div className={classes.ctaGroup}>
-									{/* <Button appearance="primary" size="large">
+							<div className={classes.ctaGroup}>
+								{/* <Button appearance="primary" size="large">
 										Registrar
 									</Button> */}
-									<Button appearance="secondary" size="large">
-										Saber más
-									</Button>
-								</div>
-							</div>
-
-							<div className={classes.graphicPlaceholder}>
-								<img
-									src={Illustration}
-									alt="Ilustración hero"
-									style={{ maxWidth: "100%", height: "auto", borderRadius: "12px" }}
-								/>
+								<Button appearance="secondary" size="large">
+									Saber más
+								</Button>
 							</div>
 						</div>
-					</section>
 
-					<section className="container w-100 mx-auto mb-5">
-						<div className="mb-4">
-							<LargeTitle as="h2" block>
-								Nuestras capacidades de negocio
-							</LargeTitle>
+						<div className={classes.graphicPlaceholder}>
+							<img
+								src={Illustration}
+								alt="Ilustración hero"
+								style={{ maxWidth: "100%", height: "auto", borderRadius: "12px" }}
+							/>
+						</div>
+					</div>
+				</section>
 
-							<Text size={400} as="p">
-								Soluciones integrales para impulsar la confianza, la eficiencia operativa y el crecimiento sostenible.
+				<section className="container w-100 mx-auto mb-5">
+					<div className="mb-4">
+						<LargeTitle as="h2" block>
+							Nuestras capacidades de negocio
+						</LargeTitle>
+
+						<Text size={400} as="p">
+							Soluciones integrales para impulsar la confianza, la eficiencia operativa y el crecimiento sostenible.
+						</Text>
+					</div>
+
+					<div className={classes.capabilitiesGrid}>
+						<Card appearance="outline">
+							<CardHeader header={<CardHeaderContent title="Auditoría y Certificación ISO" />} />
+							<Text as="p" size={200} className={classes.capabilityBody}>
+								Ejecución de auditorías internas y externas, planes de mejora, certificación en normas ISO (9001, 14001,
+								27001, 45001, 21001).
 							</Text>
-						</div>
+						</Card>
 
-						<div className={classes.capabilitiesGrid}>
-							<Card appearance="outline">
-								<CardHeader header={<CardHeaderContent title="Auditoría y Certificación ISO" />} />
-								<Text as="p" size={200} className={classes.capabilityBody}>
-									Ejecución de auditorías internas y externas, planes de mejora, certificación en normas ISO (9001,
-									14001, 27001, 45001, 21001).
-								</Text>
-							</Card>
+						<Card appearance="outline">
+							<CardHeader
+								header={<CardHeaderContent title="Gestión Documental y Protección de Activos de Información" />}
+							/>
+							<Text as="p" size={200} className={classes.capabilityBody}>
+								Protección de integridad, disponibilidad y confidencialidad de los activos de información en
+								consultorías y auditorías
+							</Text>
+						</Card>
 
-							<Card appearance="outline">
-								<CardHeader
-									header={<CardHeaderContent title="Gestión Documental y Protección de Activos de Información" />}
-								/>
-								<Text as="p" size={200} className={classes.capabilityBody}>
-									Protección de integridad, disponibilidad y confidencialidad de los activos de información en
-									consultorías y auditorías
-								</Text>
-							</Card>
+						<Card appearance="outline">
+							<CardHeader header={<CardHeaderContent title="Gestión de Ciberseguridad y Vulnerabilidades" />} />
+							<Text as="p" size={200} className={classes.capabilityBody}>
+								Servicios de seguridad de la información: pruebas de RedTeam, auditorías de red, OWISAM, ingeniería
+								social, instalación de SIEM, acceso seguro en la nube
+							</Text>
+						</Card>
 
-							<Card appearance="outline">
-								<CardHeader header={<CardHeaderContent title="Gestión de Ciberseguridad y Vulnerabilidades" />} />
-								<Text as="p" size={200} className={classes.capabilityBody}>
-									Servicios de seguridad de la información: pruebas de RedTeam, auditorías de red, OWISAM, ingeniería
-									social, instalación de SIEM, acceso seguro en la nube
-								</Text>
-							</Card>
+						<Card appearance="outline">
+							<CardHeader header={<CardHeaderContent title="Business Intelligence (BI) y Analítica de Datos" />} />
+							<Text as="p" size={200} className={classes.capabilityBody}>
+								Modelado, validación, creación de tableros de control, capacitación y soporte
+							</Text>
+						</Card>
+					</div>
+				</section>
+			</main>
 
-							<Card appearance="outline">
-								<CardHeader header={<CardHeaderContent title="Business Intelligence (BI) y Analítica de Datos" />} />
-								<Text as="p" size={200} className={classes.capabilityBody}>
-									Modelado, validación, creación de tableros de control, capacitación y soporte
-								</Text>
-							</Card>
-						</div>
-					</section>
-				</main>
-			</div>
-			<div>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 }
@@ -114,9 +107,7 @@ function CardHeaderContent(props: { title: string }): React.JSX.Element {
 
 	return (
 		<div className="d-flex align-items-center gap-2">
-			<div className={classes.capabilityIconPlaceholder}>
-				Img
-			</div>
+			<div className={classes.capabilityIconPlaceholder}>Img</div>
 
 			<Text weight="semibold" as="h3" size={400} className="flex-grow-1">
 				{props.title}

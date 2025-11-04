@@ -17,7 +17,6 @@ import {
 } from "@fluentui/react-components";
 import { MoreHorizontalRegular } from "@fluentui/react-icons";
 import Footer from "@Presentation/View/Components/Footer";
-import Nav from "@Presentation/View/Components/Nav";
 import React, { useState } from "react";
 
 function SIG(): React.JSX.Element {
@@ -32,40 +31,32 @@ function SIG(): React.JSX.Element {
 		<div
 			style={{
 				display: "grid",
-				gridTemplateRows: "auto 1fr auto",
+				gridTemplateRows: "1fr auto",
 				minHeight: "100vh",
 			}}
 		>
-			<div>
-				<Nav />
-			</div>
+			<main className="container w-100 mx-auto my-5">
+				<section className="mb-3">
+					<LargeTitle as="h1" align="start" block>
+						Normativa ISO
+					</LargeTitle>
+					<Text as="p" size={400} style={{ marginBottom: "2rem" }}>
+						En ResqBit, entendemos que la gestión eficaz de la seguridad de la información es crucial para la excelencia
+						operativa y el cumplimiento normativo. Nuestro Sistema Integrado de Gestión (SIG) se basa en la normativa
+						ISO y en procesos claros y auditables.
+					</Text>
+				</section>
 
-			<div>
-				<main className="container w-100 mx-auto my-5">
-					<section className="mb-3">
-						<LargeTitle as="h1" align="start" block>
-							Normativa ISO
-						</LargeTitle>
-						<Text as="p" size={400} style={{ marginBottom: "2rem" }}>
-							En ResqBit, entendemos que la gestión eficaz de la seguridad de la información es crucial para la
-							excelencia operativa y el cumplimiento normativo. Nuestro Sistema Integrado de Gestión (SIG) se basa en la
-							normativa ISO y en procesos claros y auditables.
-						</Text>
-					</section>
+				<section className="mb-4">
+					<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
+						<Tab value="tab1">Mapa de Procesos</Tab>
+					</TabList>
+				</section>
 
-					<section className="mb-4">
-						<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-							<Tab value="tab1">Mapa de Procesos</Tab>
-						</TabList>
-					</section>
+				<Section1 />
+			</main>
 
-					<Section1 />
-				</main>
-			</div>
-
-			<div>
-				<Footer />
-			</div>
+			<Footer />
 		</div>
 	);
 }

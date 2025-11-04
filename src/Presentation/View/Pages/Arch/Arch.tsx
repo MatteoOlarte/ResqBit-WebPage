@@ -10,39 +10,20 @@ import {
 	MessageBar,
 	MessageBarBody,
 	MessageBarTitle,
-	Popover,
-	PopoverSurface,
-	PopoverTrigger,
+	// Popover,
+	// PopoverSurface,
+	// PopoverTrigger,
 	Subtitle1,
 	Subtitle2,
 	Tab,
 	TabList,
 	Text,
 	Title2,
-	makeStyles,
-	tokens,
 } from "@fluentui/react-components";
 import Footer from "@Presentation/View/Components/Footer";
-import Nav from "@Presentation/View/Components/Nav";
 import React, { useState } from "react";
 
 function Arch(): React.JSX.Element {
-	return (
-		<div
-			style={{
-				display: "grid",
-				gridTemplateRows: "auto 1fr auto",
-				minHeight: "100vh",
-			}}
-		>
-			<Nav />
-			<Main />
-			<Footer />
-		</div>
-	);
-}
-
-function Main() {
 	const [selectedTab, setSelectedTab] = useState<TabValue>("tab4");
 
 	const onTabSelect = (_: SelectTabEvent, data: SelectTabData) => {
@@ -50,42 +31,52 @@ function Main() {
 	};
 
 	return (
-		<main className="container w-100 mx-auto my-5">
-			<section className="mb-3">
-				<LargeTitle as="h1" align="start" block>
-					Arquitectura Empresarial - Marco TOGAF
-				</LargeTitle>
+		<div
+			style={{
+				display: "grid",
+				gridTemplateRows: "1fr auto",
+				minHeight: "100vh",
+			}}
+		>
+			<main className="container w-100 mx-auto my-5">
+				<section className="mb-3">
+					<LargeTitle as="h1" align="start" block>
+						Arquitectura Empresarial - Marco TOGAF
+					</LargeTitle>
 
-				<Text as="p" size={400}>
-					En ResqBit, adoptamos el Marco TOGAF (The Open Group Architecture Framework) para guiar nuestra arquitectura
-					empresarial. TOGAF es un marco de trabajo estándar que proporciona un enfoque estructurado para diseñar,
-					planificar, implementar y gestionar la arquitectura de una empresa, asegurando alineación con los objetivos
-					estratégicos y facilitando la transformación digital.
-				</Text>
-			</section>
+					<Text as="p" size={400}>
+						En ResqBit, adoptamos el Marco TOGAF (The Open Group Architecture Framework) para guiar nuestra arquitectura
+						empresarial. TOGAF es un marco de trabajo estándar que proporciona un enfoque estructurado para diseñar,
+						planificar, implementar y gestionar la arquitectura de una empresa, asegurando alineación con los objetivos
+						estratégicos y facilitando la transformación digital.
+					</Text>
+				</section>
 
-			<section className="mb-4">
-				<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-					<Tab value="tab1" disabled>
-						Fase A
-					</Tab>
-					<Tab value="tab2" disabled>
-						Fase B
-					</Tab>
-					<Tab value="tab3" disabled>
-						Fase D
-					</Tab>
-					<Tab value="tab4">Fase E</Tab>
-				</TabList>
-			</section>
+				<section className="mb-4">
+					<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
+						<Tab value="tab1" disabled>
+							Fase A
+						</Tab>
+						<Tab value="tab2" disabled>
+							Fase B
+						</Tab>
+						<Tab value="tab3" disabled>
+							Fase D
+						</Tab>
+						<Tab value="tab4">Fase E</Tab>
+					</TabList>
+				</section>
 
-			<div className="mb-4">{selectedTab === "tab4" && <SectionE />}</div>
-		</main>
+				<div className="mb-4">{selectedTab === "tab4" && <SectionE />}</div>
+			</main>
+
+			<Footer />
+		</div>
 	);
 }
 
 function SectionE() {
-	const classes = useStyles();
+	// const classes = useStyles();
 
 	return (
 		<div>
@@ -310,34 +301,34 @@ function SectionE() {
 	);
 }
 
-const useStyles = makeStyles({
-	compact: {
-		width: "600px",
-	},
-	resizableArea: {
-		display: "flex",
-		flexDirection: "column",
-		padding: "30px 10px",
-		gap: "10px",
-		border: `2px solid ${tokens.colorBrandBackground}`,
-		position: "relative",
-		overflow: "hidden",
+// const useStyles = makeStyles({
+// 	compact: {
+// 		width: "600px",
+// 	},
+// 	resizableArea: {
+// 		display: "flex",
+// 		flexDirection: "column",
+// 		padding: "30px 10px",
+// 		gap: "10px",
+// 		border: `2px solid ${tokens.colorBrandBackground}`,
+// 		position: "relative",
+// 		overflow: "hidden",
 
-		"::after": {
-			content: `'Resizable Area'`,
-			position: "absolute",
-			padding: "1px 4px 1px",
-			top: "-2px",
-			left: "-2px",
-			fontFamily: "monospace",
-			fontSize: "15px",
-			fontWeight: 900,
-			lineHeight: 1,
-			letterSpacing: "1px",
-			color: tokens.colorNeutralForegroundOnBrand,
-			backgroundColor: tokens.colorBrandBackground,
-		},
-	},
-});
+// 		"::after": {
+// 			content: `'Resizable Area'`,
+// 			position: "absolute",
+// 			padding: "1px 4px 1px",
+// 			top: "-2px",
+// 			left: "-2px",
+// 			fontFamily: "monospace",
+// 			fontSize: "15px",
+// 			fontWeight: 900,
+// 			lineHeight: 1,
+// 			letterSpacing: "1px",
+// 			color: tokens.colorNeutralForegroundOnBrand,
+// 			backgroundColor: tokens.colorBrandBackground,
+// 		},
+// 	},
+// });
 
 export default Arch;
