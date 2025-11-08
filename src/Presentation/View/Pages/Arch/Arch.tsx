@@ -1,3 +1,4 @@
+import bannerImage from "@/assets/Arch/Arch_Banner1x.jpg";
 import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
 import {
 	Accordion,
@@ -20,7 +21,7 @@ import {
 	Text,
 	Title2,
 } from "@fluentui/react-components";
-import Footer from "@Presentation/View/Components/Footer";
+import Hero from "@Presentation/View/Components/Hero";
 import React, { useState } from "react";
 
 function Arch(): React.JSX.Element {
@@ -38,39 +39,43 @@ function Arch(): React.JSX.Element {
 				minHeight: "100vh",
 			}}
 		>
-			<main className="container w-100 mx-auto my-5">
-				<section className="mb-3">
-					<LargeTitle as="h1" align="start" block>
-						Arquitectura Empresarial - Marco TOGAF
-					</LargeTitle>
+			<main>
+				<Hero title="Arquitectura Empresarial" image={bannerImage} />
 
-					<Text as="p" size={400}>
-						En ResqBit, adoptamos el Marco TOGAF (The Open Group Architecture Framework) para guiar nuestra arquitectura
-						empresarial. TOGAF es un marco de trabajo estándar que proporciona un enfoque estructurado para diseñar,
-						planificar, implementar y gestionar la arquitectura de una empresa, asegurando alineación con los objetivos
-						estratégicos y facilitando la transformación digital.
-					</Text>
+				<section className="container mb-4">
+					<div className="mb-3">
+						<LargeTitle as="h1" align="start" block>
+							Arquitectura Empresarial - Marco TOGAF
+						</LargeTitle>
+					</div>
+
+					<section className="mb-3">
+						<Text as="p" size={400}>
+							En ResqBit, adoptamos el Marco TOGAF (The Open Group Architecture Framework) para guiar nuestra
+							arquitectura empresarial. TOGAF es un marco de trabajo estándar que proporciona un enfoque estructurado
+							para diseñar, planificar, implementar y gestionar la arquitectura de una empresa, asegurando alineación
+							con los objetivos estratégicos y facilitando la transformación digital.
+						</Text>
+					</section>
+
+					<section className="mb-4">
+						<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
+							<Tab value="tab1" disabled>
+								Fase A
+							</Tab>
+							<Tab value="tab2" disabled>
+								Fase B
+							</Tab>
+							<Tab value="tab3" disabled>
+								Fase D
+							</Tab>
+							<Tab value="tab4">Fase E</Tab>
+						</TabList>
+					</section>
+
+					<div className="mb-4">{selectedTab === "tab4" && <SectionE />}</div>
 				</section>
-
-				<section className="mb-4">
-					<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-						<Tab value="tab1" disabled>
-							Fase A
-						</Tab>
-						<Tab value="tab2" disabled>
-							Fase B
-						</Tab>
-						<Tab value="tab3" disabled>
-							Fase D
-						</Tab>
-						<Tab value="tab4">Fase E</Tab>
-					</TabList>
-				</section>
-
-				<div className="mb-4">{selectedTab === "tab4" && <SectionE />}</div>
 			</main>
-
-			<Footer />
 		</div>
 	);
 }

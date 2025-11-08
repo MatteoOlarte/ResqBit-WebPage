@@ -1,5 +1,5 @@
-import heroImage from "@/assets/SIG/Hero-ISO-9001.png";
-import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
+import heroImage from "@/assets/SIG/ISO-9001_Banner.png";
+// import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
 import {
 	Button,
 	Card,
@@ -17,15 +17,15 @@ import {
 import { MoreHorizontalRegular } from "@fluentui/react-icons";
 import Footer from "@Presentation/View/Components/Footer";
 import Hero from "@Presentation/View/Components/Hero";
-import { useState } from "react";
+// import { useState } from "react";
 
 function SIG(): React.JSX.Element {
 	// const classes = useStyles();
-	const [selectedTab, setSelectedTab] = useState<TabValue>("tab1");
+	// const [selectedTab, setSelectedTab] = useState<TabValue>("tab1");
 
-	const onTabSelect = (_: SelectTabEvent, data: SelectTabData) => {
-		setSelectedTab(data.value);
-	};
+	// const onTabSelect = (_: SelectTabEvent, data: SelectTabData) => {
+	// 	setSelectedTab(data.value);
+	// };
 
 	return (
 		<div
