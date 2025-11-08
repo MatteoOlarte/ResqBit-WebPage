@@ -1,0 +1,24 @@
+/* Bootstrap-like utilities for logical margin start (inline start) */
+
+/* Spacing scale aligned with Bootstrap: 0, .25rem, .5rem, 1rem, 1.5rem, 3rem */
+.mi-s-0 {
+	margin-inline-start: 0 !important;
+}
+.mi-s-1 {
+	margin-inline-start: 0.25rem !important;
+}
+.mi-s-2 {
+	margin-inline-start: 0.5rem !important;
+}
+.mi-s-3 {
+	margin-inline-start: 1rem !important;
+}
+.mi-s-4 {
+	margin-inline-start: 1.5rem !important;
+}
+.mi-s-5 {
+	margin-inline-start: 3rem !important;
+}
+.mi-s-auto {
+	margin-inline-start: auto !important;
+}

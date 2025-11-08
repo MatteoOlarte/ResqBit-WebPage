@@ -9,20 +9,29 @@ import SIG from "@Presentation/View/Pages/SIG/SIG";
 import Strategies from "@Presentation/View/Pages/Strategies/Strategies";
 import { GlobalProvider } from "@Presentation/ViewModel/GlobalContext";
 import { BrowserRouter, useRoutes } from "react-router-dom";
+import { GlobalContext } from "../ViewModel/GlobalContext";
+import { useRequiredContext } from "../ViewModel/Utils/useRequiredContext";
 
 function App() {
 	return (
 		<FluentProvider theme={resqBitLightTheme}>
 			<BrowserRouter basename="/ResqBit-WebPage">
 				<GlobalProvider>
-					<header className="sticky-top">
-						<Nav />
-					</header>
-
+					<Header />
 					<Routes />
 				</GlobalProvider>
 			</BrowserRouter>
 		</FluentProvider>
+	);
+}
+
+function Header() {
+	const global_C = useRequiredContext(GlobalContext);
+
+	return (
+		<header className="sticky-top">
+			<Nav threshold={global_C.navbarThresholdValue} />
+		</header>
 	);
 }
 

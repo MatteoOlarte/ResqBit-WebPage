@@ -7,17 +7,24 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 function GlobalProvider({ children }: GlobalProviderProps) {
 	const location = useLocation();
 	const [InvertorMode, setInvertorMode] = useState<boolean>(false);
+	const [navbarThresholdValue, setNavbarThresholdValue] = useState<number>(59); // px threshold for navbar style change
 
 	useEffect(() => {
 		setInvertorMode(location.pathname.startsWith("/stakeholders"));
+		setNavbarThresholdValue(150);
 	}, [location.pathname]);
 
-	return <GlobalContext.Provider value={{ InvertorMode, setInvertorMode }}>{children}</GlobalContext.Provider>;
+	return (
+		<GlobalContext.Provider value={{ InvertorMode, navbarThresholdValue, setInvertorMode }}>
+			{children}
+		</GlobalContext.Provider>
+	);
 }
 
 interface GlobalContextType {
 	InvertorMode: boolean;
 	setInvertorMode: (mode: boolean) => void;
+	navbarThresholdValue: number;
 }
 
 interface GlobalProviderProps {

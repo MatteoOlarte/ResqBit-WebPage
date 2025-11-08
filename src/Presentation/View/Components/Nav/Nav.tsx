@@ -3,25 +3,31 @@ import { useRequiredContext } from "@/Presentation/ViewModel/Utils/useRequiredCo
 import { Text, makeStyles, tokens } from "@fluentui/react-components";
 import SVGIcon from "@Presentation/View/Components/SVGIcon";
 import clsx from "clsx";
-import React, { useId } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { NavLink } from "react-router-dom";
+import styles from "./styles.module.css";
 
-function Nav(): React.JSX.Element {
+function Nav({ threshold = 59 }: NavProps): React.JSX.Element {
 	const global_C = useRequiredContext(GlobalContext);
+	const scrolled = useScrolled(threshold);
 
 	if (!global_C.InvertorMode) {
-		return <DefaultNavBar />;
+		return <DefaultNavBar scrolled={scrolled} />;
 	} else {
-		return <InvertorNavBar />;
+		return <InvertorNavBar scrolled={scrolled} />;
 	}
 }
 
-function DefaultNavBar() {
+interface NavProps extends React.ComponentProps<"nav"> {
+	threshold?: number;
+}
+
+function DefaultNavBar({ scrolled }: { scrolled: boolean }) {
 	const navId = useId();
 	const classes = useStyles();
 
 	return (
-		<nav className={clsx("navbar", "navbar-expand-lg", "sticky-top", classes.root)}>
+		<nav className={clsx("navbar", "navbar-expand-lg", "sticky-top", classes.root1, scrolled && classes.root2)}>
 			<div className="container w-100 mx-auto">
 				<NavLink to="/" className="navbar-brand">
 					<SVGIcon width={32} height={32} className="me-2" />
@@ -73,25 +79,35 @@ function DefaultNavBar() {
 	);
 }
 
-function InvertorNavBar() {
+function InvertorNavBar({ scrolled }: { scrolled: boolean }) {
 	const navId = useId();
 	const classes = useStyles();
 
 	return (
-		<nav className={clsx("navbar", "navbar-expand-lg", "sticky-top", classes.root)}>
+		<nav className={clsx("navbar", "navbar-expand-lg", "sticky-top", classes.root1, scrolled && classes.root2)}>
 			<div className="container w-100 mx-auto">
 				<NavLink to="/" className="navbar-brand">
 					<SVGIcon width={32} height={32} className="me-2" />
 
 					<Text
-						className={classes.header}
+						className={clsx(classes.header)}
 						as="h1"
 						size={500}
 						weight="regular"
 						style={{ fontFamily: "Benguiat Regular" }}
 					>
-						RESQBIT+
+						RESQBIT
 					</Text>
+
+					<span className={styles["mi-s-2"]}>
+						<i className={classes.divider}>|</i>
+					</span>
+
+					<span className={styles["mi-s-2"]}>
+						<Text as="h1" size={300} weight="regular" className={clsx(classes.stakeholdersBadge)}>
+							STAKEHOLDERS
+						</Text>
+					</span>
 				</NavLink>
 
 				<button
@@ -170,15 +186,44 @@ function InvertorNavBar() {
 	);
 }
 
+// Hook: track scroll position and return true when beyond threshold (in px)
+function useScrolled(threshold = 24) {
+	const [scrolled, setScrolled] = useState(false);
+
+	useEffect(() => {
+		const onScroll = () => setScrolled(window.scrollY > threshold);
+		onScroll(); // initialize on mount
+		window.addEventListener("scroll", onScroll, { passive: true });
+		return () => window.removeEventListener("scroll", onScroll);
+	}, [threshold]);
+
+	return scrolled;
+}
+
 const useStyles = makeStyles({
-	root: {
-		backgroundColor: `color-mix(in srgb, ${tokens.colorNeutralBackground2} 40%, transparent)`,
+	root1: {
+		backgroundColor: tokens.colorNeutralBackground2,
+		borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
+		transition: "background .24s cubic-bezier(.4,0,.6,1);",
+	},
+	root2: {
+		backgroundColor: `color-mix(in srgb, ${tokens.colorNeutralBackground2}, transparent 60%)`,
 		borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
 		backdropFilter: "saturate(180%) blur(20px)",
 	},
 	header: {
 		color: tokens.colorBrandBackground,
 		verticalAlign: "middle",
+	},
+	stakeholdersBadge: {
+		border: `1px solid ${tokens.colorBrandBackground}`,
+		color: `${tokens.colorBrandBackground}`,
+		padding: "2px 6px",
+		borderRadius: "4px",
+		fontFamily: "Benguiat Regular",
+	},
+	divider: {
+		color: tokens.colorNeutralForeground3,
 	},
 });
 
