@@ -10,8 +10,12 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 	const [navbarThresholdValue, setNavbarThresholdValue] = useState<number>(59); // px threshold for navbar style change
 
 	useEffect(() => {
+		if (location.pathname.startsWith("/stakeholders")) {
+			setNavbarThresholdValue(589);
+		} else {
+			setNavbarThresholdValue(59);
+		}
 		setInvertorMode(location.pathname.startsWith("/stakeholders"));
-		setNavbarThresholdValue(150);
 	}, [location.pathname]);
 
 	return (

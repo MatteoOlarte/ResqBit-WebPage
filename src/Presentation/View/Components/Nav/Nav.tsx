@@ -65,11 +65,11 @@ function DefaultNavBar({ scrolled }: { scrolled: boolean }) {
 
 						<li className="nav-item">
 							<NavLink
-								to="/faq"
+								to="/stakeholders/leadership-and-governance"
 								className={({ isActive }) => clsx("nav-link", isActive && "active")}
 								aria-current="page"
 							>
-								FAQ
+								Stakeholders
 							</NavLink>
 						</li>
 					</ul>
@@ -207,7 +207,7 @@ const useStyles = makeStyles({
 		transition: "background .24s cubic-bezier(.4,0,.6,1);",
 	},
 	root2: {
-		backgroundColor: `color-mix(in srgb, ${tokens.colorNeutralBackground2}, transparent 60%)`,
+		backgroundColor: `color-mix(in srgb, ${tokens.colorNeutralBackground2}, transparent 80%)`,
 		borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
 		backdropFilter: "saturate(180%) blur(20px)",
 	},

@@ -48,6 +48,12 @@ function Footer(): React.JSX.Element {
 										Capasides de Negocio
 									</Text>
 								</NavLink>
+
+								<NavLink to="/stakeholders/leadership-and-governance" className={classes.link}>
+									<Text as="p" className={classes.text}>
+										Stakeholders
+									</Text>
+								</NavLink>
 							</div>
 
 							<div className="mb-2">
