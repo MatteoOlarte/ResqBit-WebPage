@@ -5,6 +5,7 @@ import Arch from "@Presentation/View/Pages/Arch";
 import FAQ from "@Presentation/View/Pages/FAQ/FAQ";
 import Governance from "@Presentation/View/Pages/Governance/Governance";
 import Home from "@Presentation/View/Pages/Home";
+import Map from "@Presentation/View/Pages/Map";
 import SIG from "@Presentation/View/Pages/SIG/SIG";
 import Strategies from "@Presentation/View/Pages/Strategies/Strategies";
 import { GlobalProvider } from "@Presentation/ViewModel/GlobalContext";
@@ -39,6 +40,7 @@ const Routes = () => {
 	let routes = useRoutes([
 		{ path: "/", element: <Home /> },
 		{ path: "/stakeholders/iso-standards", element: <SIG /> },
+		{ path: "/stakeholders/iso-standards/processes-map", element: <Map /> },
 		{ path: "/stakeholders/leadership-and-governance", element: <Governance /> },
 		{ path: "/stakeholders/business-strategies", element: <Strategies /> },
 		{ path: "/stakeholders/faq", element: <FAQ /> },
