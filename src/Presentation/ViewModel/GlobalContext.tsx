@@ -11,7 +11,7 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
 	useEffect(() => {
 		if (location.pathname.startsWith("/stakeholders")) {
-			setNavbarThresholdValue(589);
+			setNavbarThresholdValue(150);
 		} else {
 			setNavbarThresholdValue(59);
 		}

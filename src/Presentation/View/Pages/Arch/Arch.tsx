@@ -1,14 +1,20 @@
 import bannerImage from "@/assets/Arch/Arch_Banner1x.jpg";
 import type { SelectTabData, SelectTabEvent, TabValue } from "@fluentui/react-components";
 import { LargeTitle, Tab, TabList, Text } from "@fluentui/react-components";
+import Footer from "@Presentation/View/Components/Footer";
 import Hero from "@Presentation/View/Components/Hero";
 import React, { useState } from "react";
+import PhaseA from "./Components/PhaseA";
+import PhaseB from "./Components/PhaseB";
+import PhaseC from "./Components/PhaseC";
+import PhaseD from "./Components/PhaseD";
 import PhaseE from "./Components/PhaseE";
+import PhaseF from "./Components/PhaseF";
 import PhaseG from "./Components/PhaseG";
 import PhaseH from "./Components/PhaseH";
 
 function Arch(): React.JSX.Element {
-	const [selectedTab, setSelectedTab] = useState<TabValue>("tab4");
+	const [selectedTab, setSelectedTab] = useState<TabValue>("tab1");
 
 	const onTabSelect = (_: SelectTabEvent, data: SelectTabData) => {
 		setSelectedTab(data.value);
@@ -22,7 +28,7 @@ function Arch(): React.JSX.Element {
 				minHeight: "100vh",
 			}}
 		>
-			<main>
+			<main style={{ marginBottom: "5rem" }}>
 				<Hero title="Arquitectura Empresarial" image={bannerImage} />
 
 				<section className="container mb-4">
@@ -43,31 +49,31 @@ function Arch(): React.JSX.Element {
 
 					<section className="mb-4">
 						<TabList size="large" selectedValue={selectedTab} onTabSelect={onTabSelect}>
-							<Tab value="tab1" disabled>
-								Fase A
-							</Tab>
-							<Tab value="tab2" disabled>
-								Fase B
-							</Tab>
-							<Tab value="tab3" disabled>
-								Fase D
-							</Tab>
-							<Tab value="tab4">Fase E</Tab>
-							<Tab value="tab5" disabled>
-								Fase F
-							</Tab>
-							<Tab value="tab6">Fase G</Tab>
-							<Tab value="tab7">Fase H</Tab>
+							<Tab value="tab1">Fase A</Tab>
+							<Tab value="tab2">Fase B</Tab>
+							<Tab value="tab3">Fase C</Tab>
+							<Tab value="tab4">Fase D</Tab>
+							<Tab value="tab5">Fase E</Tab>
+							<Tab value="tab6">Fase F</Tab>
+							<Tab value="tab7">Fase G</Tab>
+							<Tab value="tab8">Fase H</Tab>
 						</TabList>
 					</section>
 
 					<div className="mb-4">
-						{selectedTab === "tab4" && <PhaseE />}
-						{selectedTab === "tab6" && <PhaseG />}
-						{selectedTab === "tab7" && <PhaseH />}
+						{selectedTab === "tab1" && <PhaseA />}
+						{selectedTab === "tab2" && <PhaseB />}
+						{selectedTab === "tab3" && <PhaseC />}
+						{selectedTab === "tab4" && <PhaseD />}
+						{selectedTab === "tab5" && <PhaseE />}
+						{selectedTab === "tab6" && <PhaseF />}
+						{selectedTab === "tab7" && <PhaseG />}
+						{selectedTab === "tab8" && <PhaseH />}
 					</div>
 				</section>
 			</main>
+
+			<Footer />
 		</div>
 	);
 }

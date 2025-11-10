@@ -155,7 +155,7 @@ function PhaseH() {
 		<>
 			<div className="mb-4">
 				<Subtitle1 as="h2" className="mb-3" block>
-					FASE H – Architecture Change Management
+					Architecture Change Management
 				</Subtitle1>
 
 				<Subtitle2 className="mb-1" block>
