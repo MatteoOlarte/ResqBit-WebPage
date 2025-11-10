@@ -5,6 +5,7 @@ import Hero from "@Presentation/View/Components/Hero";
 import React, { useState } from "react";
 import PhaseE from "./Components/PhaseE";
 import PhaseG from "./Components/PhaseG";
+import PhaseH from "./Components/PhaseH";
 
 function Arch(): React.JSX.Element {
 	const [selectedTab, setSelectedTab] = useState<TabValue>("tab4");
@@ -63,7 +64,7 @@ function Arch(): React.JSX.Element {
 					<div className="mb-4">
 						{selectedTab === "tab4" && <PhaseE />}
 						{selectedTab === "tab6" && <PhaseG />}
-						{selectedTab === "tab7" && <div>Contenido de Fase H próximamente</div>}
+						{selectedTab === "tab7" && <PhaseH />}
 					</div>
 				</section>
 			</main>

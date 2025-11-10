@@ -115,23 +115,16 @@ const columns: TableColumnDefinition<Deliverable>[] = [
 
 const itilData: KeyActivityItemType[] = [
 	{
-		title: "Change Enablement (ITIL4)",
-		desc: ["canaliza formalmente las solicitudes de cambio arquitectónico."],
+		title: "Change Enablement + Release Management",
+		desc: ["Aseguran que los cambios aprobados sigan la gobernanza arquitectónica."],
 	},
 	{
 		title: "Continual Improvement",
-		desc: [
-			"usa indicadores (presencia digital, satisfacción, eficiencia operativa) para detectar oportunidades de mejora",
-			"OKR y KPIs",
-		],
+		desc: ["Retroalimenta la madurez de los procesos y servicios"],
 	},
 	{
-		title: "Information Security Management",
-		desc: ["asegura que cada cambio preserve la CIA (confidencialidad, integridad y disponibilidad)."],
-	},
-	{
-		title: "Knowledge Management",
-		desc: ["mantiene documentación viva y accesible en SharePoint / Confluence"],
+		title: "Service Level Management",
+		desc: ["Mide los KPIs definidos en OKR y matriz de valor OKR y KPIs."],
 	},
 ];
 
