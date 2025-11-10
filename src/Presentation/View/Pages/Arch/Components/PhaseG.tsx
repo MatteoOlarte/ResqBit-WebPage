@@ -137,7 +137,7 @@ function PhaseG() {
 				</Subtitle1>
 
 				<Subtitle2 className="mb-1" block>
-					Proposito
+					Propósito
 				</Subtitle2>
 
 				<Text as="p" size={400} className="mb-1" block>

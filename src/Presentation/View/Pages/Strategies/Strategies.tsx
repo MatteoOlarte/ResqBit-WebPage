@@ -3,10 +3,10 @@ import { Subtitle1, Text, Title1 } from "@fluentui/react-components";
 import Hero from "@Presentation/View/Components/Hero";
 import React from "react";
 import { NavLink } from "react-router-dom";
+import Footer from "../../Components/Footer";
 import BlueOcean from "./Components/BlueOcean";
 import DOFA from "./Components/DOFA";
 import Porter from "./Components/Porter";
-import Footer from "../../Components/Footer";
 
 function Strategies(): React.JSX.Element {
 	return (
@@ -17,7 +17,7 @@ function Strategies(): React.JSX.Element {
 				minHeight: "100vh",
 			}}
 		>
-			<main style={{marginBottom: '5rem'}}>
+			<main style={{ marginBottom: "5rem" }}>
 				<Hero title="Estrategias" image={heroImage} />
 
 				<div className="container mb-4">
@@ -26,7 +26,7 @@ function Strategies(): React.JSX.Element {
 					</Title1>
 
 					<Text as="p" size={400} block>
-						En esta sección se presentan las principales estrategias empresariales de Reqbit S.A.S, orientadas a
+						En esta sección se presentan las principales estrategias empresariales de ResqBit S.A.S, orientadas a
 						fortalecer su posición en el mercado de auditoría y ciberseguridad para PYMES. A través de diferentes
 						enfoques de análisis DOFA, Fuerzas de Porter, Océano Azul y Modelo Clásico se identifican los factores
 						internos y externos que influyen en el crecimiento sostenible de la compañía. El propósito es ofrecer a los

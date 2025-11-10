@@ -83,7 +83,7 @@ function BlueOcean() {
 						</Subtitle2>
 
 						<Text as="p" size={400} block>
-							Una auditoría automatizada y predictiva, con experiencia digital trasformadora y un modelo de suscripción
+							Una auditoría automatizada y predictiva, con experiencia digital transformadora y un modelo de suscripción
 							escalable que impulsa a las PYMES con eficiencia, comunidad y crecimiento sostenible.
 						</Text>
 					</div>
@@ -152,32 +152,32 @@ const data: ValueStrategyItem[] = [
 		title: "Reducir",
 		desc: [
 			"Tiempo de auditoría presencial.",
-			"Error humano con análisis automatico.",
+			"Error humano con análisis automático.",
 			"Tiempo de entrega de reportes.",
 		],
 	},
 	{
 		title: "Eliminar",
-		desc: ["Auditoras presenciales extensas.", "Reportes estensos en PDF."],
+		desc: ["Auditorías presenciales extensas.", "Reportes estáticos en PDF."],
 	},
 	{
 		title: "Elevar",
 		desc: [
 			"Frecuencia de monitoreo.",
-			"Trasparencia con clientes.",
+			"Transparencia con clientes.",
 			"Personalización: Adaptarse a cada cliente.",
 			"Valor Predictivo: Identificar riesgos.",
 		],
 	},
 	{
 		title: "Crear",
-		desc: ["Auditoria continua como servicio.", "Plataforma de autodiagnóstico.", "Comunidad de mejores prácticas."],
+		desc: ["Auditoría continua como servicio.", "Plataforma de autodiagnóstico.", "Comunidad de mejores prácticas."],
 	},
 ];
 
 const items: Item[] = [
 	{ aspecto: "Competencia por precio", descripcion: "Múltiples firmas buscando precios competitivos." },
-	{ aspecto: "Servicios estandarizados", descripcion: "Auditorias tradicionales sin mayor diferenciación." },
+	{ aspecto: "Servicios estandarizados", descripcion: "Auditorías tradicionales sin mayor diferenciación." },
 	{ aspecto: "Alta dependencia (horas/hombre)", descripcion: "Costos variables" },
 	{ aspecto: "Clientes descontentos", descripcion: "Largos tiempos de entrega y falta de personalización." },
 ];

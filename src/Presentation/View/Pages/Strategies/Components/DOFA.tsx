@@ -5,21 +5,21 @@ import React from "react";
 const _data = {
 	debilidades: [
 		"Marca y Empresa con recursos financieros limitados para desarrollar tecnologías de automatización.",
-		"Procesos manuales predominates en recolecion y analisis de evidencia.",
+		"Procesos manuales predominantes en recolección y análisis de evidencia.",
 		"Curva de aprendizaje para implementar herramientas de automatización.",
-		"Auditorias presenciales que incrementan costos y tiempos.",
+		"Auditorías presenciales que incrementan costos y tiempos.",
 	],
 	oportunidades: [
 		"Creciente demanda de PYMES por servicios de auditoría asequibles y eficientes.",
 		"Tendencia hacia el trabajo remoto que facilita auditorías virtuales.",
 		"Avances de herramientas low-code que reducen costos de desarrollo.",
-		"Disponibilidad de API's que permiten integración con los sustemas contables.",
+		"Disponibilidad de APIs que permiten integración con los sistemas contables.",
 	],
 	fortalezas: [
 		"Conocimiento especializado en normas ISO y procedimientos de auditoría.",
-		"Capacidad de presonalización para adaptarse a diferentes tipos de PYMES.",
-		"Metodologias de auditoría ya establecidas y probadas.",
-		"Equipo con abilidades técnicas en BI y ciberseguridad.",
+		"Capacidad de personalización para adaptarse a diferentes tipos de PYMES.",
+		"Metodologías de auditoría ya establecidas y probadas.",
+		"Equipo con habilidades técnicas en BI y ciberseguridad.",
 	],
 	amenazas: [
 		"Competencias de grandes firmas que ya tienen procesos automatizados.",
