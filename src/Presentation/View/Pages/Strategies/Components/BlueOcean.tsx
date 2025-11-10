@@ -2,6 +2,7 @@ import image1 from "@/assets/Strategies/Blue_O.jpg";
 import image2 from "@/assets/Strategies/Red_O.jpg";
 import type { TableColumnDefinition } from "@fluentui/react-components";
 import {
+	Button,
 	Card,
 	createTableColumn,
 	DataGrid,
@@ -22,7 +23,18 @@ import { useState } from "react";
 
 function BlueOcean() {
 	const classes = useStyles();
-	const [hovered, setHovered] = useState(false);
+	const carousel = [
+		{ src: image1, caption: "Estrategia de Océano Azul" },
+		{ src: image2, caption: "Estrategia de Océano Rojo" },
+	];
+	const [current, setCurrent] = useState(0);
+
+	const next = () => setCurrent((c) => (c + 1) % carousel.length);
+	const prev = () => setCurrent((c) => (c - 1 + carousel.length) % carousel.length);
+	const onKey = (e: React.KeyboardEvent) => {
+		if (e.key === "ArrowRight") next();
+		if (e.key === "ArrowLeft") prev();
+	};
 
 	return (
 		<div>
@@ -77,22 +89,25 @@ function BlueOcean() {
 					</div>
 				</div>
 
-				<figure className="m-0">
-					<Image
-						src={hovered ? image1 : image2}
-						alt="Blue Ocean"
-						className={classes.image}
-						onMouseEnter={() => setHovered(true)}
-						onMouseLeave={() => setHovered(false)}
-					/>
-					<figcaption
-						style={{
-							fontSize: "0.75rem",
-							opacity: 0.7,
-							marginTop: "0.5rem",
-						}}
-					>
-						{hovered ? "Estrategia de Océano Azul" : "Estrategia de Océano Rojo"}
+				<figure
+					className={classes.figure}
+					role="region"
+					aria-roledescription="carousel"
+					aria-label="Estrategias"
+					tabIndex={0}
+					onKeyDown={onKey}
+				>
+					<Image src={carousel[current].src} alt={carousel[current].caption} className={classes.image} />
+					<div className={classes.controls} aria-hidden>
+						<Button appearance="subtle" onClick={prev} shape="circular">
+							‹
+						</Button>
+						<Button appearance="subtle" onClick={next} shape="circular">
+							›
+						</Button>
+					</div>
+					<figcaption className={classes.caption} aria-live="polite">
+						{carousel[current].caption} ({current + 1}/{carousel.length})
 					</figcaption>
 				</figure>
 			</div>
@@ -199,20 +214,45 @@ const useStyles = makeStyles({
 		transition: "width 0.3s ease",
 		cursor: "pointer",
 		"@media (max-width: 992px)": {
-			order: 1
+			order: 1,
 		},
 	},
-  text: {
-    flexGrow: 1,
-    "@media (max-width: 992px)": {
-			order: 2
+	text: {
+		flexGrow: 1,
+		"@media (max-width: 992px)": {
+			order: 2,
 		},
-  },
+	},
 	DOFA: {
 		display: "grid",
 		gridTemplateColumns: "repeat(2, 1fr)",
 		gridTemplateRows: "repeat(2, 1fr)",
 		gap: "1rem",
+	},
+	figure: {
+		margin: 0,
+		position: "relative",
+		maxWidth: "clamp(400px, 400px, 784px)",
+	},
+	controls: {
+		position: "absolute",
+		inset: 0,
+		display: "flex",
+		alignItems: "center",
+		justifyContent: "space-between",
+		padding: tokens.spacingHorizontalS,
+		pointerEvents: "none",
+		"& > *": {
+			pointerEvents: "auto",
+			background: tokens.colorNeutralBackground1,
+			boxShadow: tokens.shadow4,
+		},
+	},
+	caption: {
+		fontSize: "0.75rem",
+		opacity: 0.7,
+		marginTop: "0.5rem",
+		textAlign: "center",
 	},
 });
 
