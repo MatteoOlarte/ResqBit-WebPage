@@ -65,6 +65,31 @@ function DefaultNavBar({ scrolled }: { scrolled: boolean }) {
 
 						<li className="nav-item">
 							<NavLink
+								to="/services"
+								className={({ isActive }) => clsx("nav-link", isActive && "active")}
+								aria-current="page"
+							>
+								Servicios
+							</NavLink>
+						</li>
+
+						<li className="nav-item">
+							<NavLink
+								to="/reviews"
+								className={({ isActive }) => clsx("nav-link", isActive && "active")}
+								aria-current="page"
+							>
+								Reseñas
+							</NavLink>
+						</li>
+
+						{/* Divider between Reseñas and Stakeholders */}
+						<li className="nav-item d-flex align-items-center px-2" aria-hidden="true">
+							<i className={classes.divider}>|</i>
+						</li>
+
+						<li className="nav-item">
+							<NavLink
 								to="/stakeholders/leadership-and-governance"
 								className={({ isActive }) => clsx("nav-link", isActive && "active")}
 								aria-current="page"

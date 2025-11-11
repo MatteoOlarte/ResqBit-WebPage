@@ -6,6 +6,8 @@ import FAQ from "@Presentation/View/Pages/FAQ/FAQ";
 import Governance from "@Presentation/View/Pages/Governance/Governance";
 import Home from "@Presentation/View/Pages/Home";
 import Map from "@Presentation/View/Pages/Map";
+import Reviews from "@Presentation/View/Pages/Reviews";
+import Services from "@Presentation/View/Pages/Services";
 import SIG from "@Presentation/View/Pages/SIG/SIG";
 import Strategies from "@Presentation/View/Pages/Strategies/Strategies";
 import { GlobalProvider } from "@Presentation/ViewModel/GlobalContext";
@@ -39,6 +41,8 @@ function Header() {
 const Routes = () => {
 	let routes = useRoutes([
 		{ path: "/", element: <Home /> },
+		{ path: "/services", element: <Services /> },
+		{ path: "/reviews", element: <Reviews /> },
 		{ path: "/stakeholders/iso-standards", element: <SIG /> },
 		{ path: "/stakeholders/iso-standards/processes-map", element: <Map /> },
 		{ path: "/stakeholders/leadership-and-governance", element: <Governance /> },
