@@ -332,7 +332,7 @@ function ReviewCard({ review }: ReviewCardProps) {
 						<Subtitle2 as="h3" className="mb-0">
 							{review.name}
 						</Subtitle2>
-						<Text size={200} className={classes.companyText}>
+						<Text size={200} className={classes.companyText} block>
 							{review.company}
 						</Text>
 					</div>
