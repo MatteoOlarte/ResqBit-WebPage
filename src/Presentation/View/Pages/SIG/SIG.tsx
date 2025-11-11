@@ -4,12 +4,11 @@ import { Button, Divider, Image, makeStyles, Text, Title1 } from "@fluentui/reac
 import { BookInformationFilled } from "@fluentui/react-icons";
 import Footer from "@Presentation/View/Components/Footer";
 import Hero from "@Presentation/View/Components/Hero";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Section1 from "./Section1";
 
 function SIG(): React.JSX.Element {
 	const classes = useStyles();
-	const navigate = useNavigate();
 
 	return (
 		<div
@@ -39,10 +38,6 @@ function SIG(): React.JSX.Element {
 						Mapa de Procesos
 					</Title1>
 
-					<Section1 />
-
-					<Divider className="my-4" />
-
 					<div className="d-flex flex-nowrap align-items-start gap-3">
 						<figure style={{ margin: 0 }}>
 							<Image src={mapImage} alt="Mapa de Procesos ResqBit" className={classes.processMap} />
@@ -64,16 +59,21 @@ function SIG(): React.JSX.Element {
 								eficiencia y calidad en todas nuestras operaciones.
 							</Text>
 
-							<Button
-								appearance="subtle"
-								icon={<BookInformationFilled />}
-								onClick={() => navigate("/stakeholders/iso-standards/processes-map")}
-								aria-label="Ir al mapa de procesos interactivo"
-							>
-								Visita Nuestro Mapa de Procesos Interactivo
-							</Button>
+							<Link to="/stakeholders/iso-standards/processes-map" target="_blank" rel="noopener noreferrer">
+								<Button
+									appearance="primary"
+									icon={<BookInformationFilled />}
+									aria-label="Ir al mapa de procesos interactivo (abre en nueva pestaña)"
+								>
+									Visita Nuestro Mapa de Procesos Interactivo
+								</Button>
+							</Link>
 						</div>
 					</div>
+
+					<Divider className="my-4" />
+
+					<Section1 />
 				</section>
 
 				<section className="container mb-4">

@@ -11,6 +11,10 @@ function Nav({ threshold = 59 }: NavProps): React.JSX.Element {
 	const global_C = useRequiredContext(GlobalContext);
 	const scrolled = useScrolled(threshold);
 
+	if (!global_C.navbarVisible) {
+		return <></>;
+	}
+
 	if (!global_C.InvertorMode) {
 		return <DefaultNavBar scrolled={scrolled} />;
 	} else {

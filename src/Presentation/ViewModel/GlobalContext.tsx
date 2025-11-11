@@ -8,6 +8,7 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 	const location = useLocation();
 	const [InvertorMode, setInvertorMode] = useState<boolean>(false);
 	const [navbarThresholdValue, setNavbarThresholdValue] = useState<number>(59); // px threshold for navbar style change
+	const [navbarVisible, setNavbarVisible] = useState<boolean>(true);
 
 	useEffect(() => {
 		if (location.pathname.startsWith("/stakeholders")) {
@@ -15,11 +16,13 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 		} else {
 			setNavbarThresholdValue(59);
 		}
+
 		setInvertorMode(location.pathname.startsWith("/stakeholders"));
+		setNavbarVisible(location.pathname !== "/stakeholders/iso-standards/processes-map");
 	}, [location.pathname]);
 
 	return (
-		<GlobalContext.Provider value={{ InvertorMode, navbarThresholdValue, setInvertorMode }}>
+		<GlobalContext.Provider value={{ InvertorMode, navbarThresholdValue, navbarVisible, setInvertorMode }}>
 			{children}
 		</GlobalContext.Provider>
 	);
@@ -27,8 +30,9 @@ function GlobalProvider({ children }: GlobalProviderProps) {
 
 interface GlobalContextType {
 	InvertorMode: boolean;
-	setInvertorMode: (mode: boolean) => void;
 	navbarThresholdValue: number;
+	navbarVisible: boolean;
+	setInvertorMode: (mode: boolean) => void;
 }
 
 interface GlobalProviderProps {
