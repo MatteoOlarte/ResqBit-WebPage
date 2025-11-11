@@ -1,16 +1,7 @@
 import {
-	DataGrid,
-	DataGridBody,
-	DataGridCell,
-	DataGridHeader,
-	DataGridHeaderCell,
-	DataGridRow,
 	Subtitle1,
 	Subtitle2,
-	TableCellLayout,
 	Text,
-	createTableColumn,
-	type TableColumnDefinition,
 } from "@fluentui/react-components";
 import KeyActivityItem, { type KeyActivityItemType } from "@Presentation/View/Components/KeyActivityItem";
 
@@ -75,42 +66,6 @@ const data: KeyActivityItemType[] = [
 			"Las soluciones implementadas se documentan en el catálogo de aplicaciones y tecnología.",
 		],
 	},
-];
-
-interface Deliverable {
-	entregable: string;
-	descripcion: string;
-}
-
-const deliverables: Deliverable[] = [
-	{
-		entregable: "Plan de Gobernanza de Implementación",
-		descripcion: "Define los roles, revisiones, políticas de control y criterios de aceptación.",
-	},
-	{ entregable: "Architecture Compliance Report", descripcion: "Resultado formal de la evaluación de conformidad." },
-	{ entregable: "Registro de Excepciones", descripcion: "Cambios aprobados fuera del estándar y su justificación." },
-	{
-		entregable: "Actualización del Repositorio Arquitectónico",
-		descripcion: "Modelos actualizados de aplicaciones, datos y tecnología.",
-	},
-	{
-		entregable: "Informe Gerencial ITIL/TOGAF",
-		descripcion:
-			"Reporte combinado para alta dirección sobre cumplimiento, riesgos y beneficios\nInforme_Gerencial_ITIL4 (1)",
-	},
-];
-
-const columns: TableColumnDefinition<Deliverable>[] = [
-	createTableColumn<Deliverable>({
-		columnId: "entregable",
-		renderHeaderCell: () => <Text weight="semibold">Entregable</Text>,
-		renderCell: (item) => <TableCellLayout>{item.entregable}</TableCellLayout>,
-	}),
-	createTableColumn<Deliverable>({
-		columnId: "descripcion",
-		renderHeaderCell: () => <Text weight="semibold">Descripción</Text>,
-		renderCell: (item) => <TableCellLayout>{item.descripcion}</TableCellLayout>,
-	}),
 ];
 
 const itilData: KeyActivityItemType[] = [
