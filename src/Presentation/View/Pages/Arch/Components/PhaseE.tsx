@@ -1,383 +1,331 @@
 import {
-	Accordion,
-	AccordionHeader,
-	AccordionItem,
-	AccordionPanel,
-	Card,
-	CardHeader,
-	MessageBar,
-	MessageBarBody,
-	MessageBarTitle,
-	// Popover,
-	// PopoverSurface,
-	// PopoverTrigger,
+	Body1Strong,
+	makeStyles,
+	Subtitle1,
 	Subtitle2,
+	Table,
+	TableBody,
+	TableCell,
+	TableHeader,
+	TableHeaderCell,
+	TableRow,
 	Text,
-	Title2,
+	tokens,
 } from "@fluentui/react-components";
+import KeyActivityItem from "@Presentation/View/Components/KeyActivityItem";
+import image from "@/assets/Arch/Picture2.jpg";
+
+const useStyles = makeStyles({
+	imageContainer: {
+		display: "flex",
+		justifyContent: "center",
+		alignItems: "center",
+		marginBottom: tokens.spacingVerticalXXL,
+	},
+	image: {
+		aspectRatio: "19/6",
+		maxWidth: "100%",
+		width: "100%",
+		height: "auto",
+		objectFit: "cover",
+		borderRadius: tokens.borderRadiusMedium,
+		boxShadow: tokens.shadow8,
+	},
+});
 
 function PhaseE() {
-	// const classes = useStyles();
+	const classes = useStyles();
 
 	return (
 		<div>
 			<div className="mb-4">
-				<Title2 as="h2" className="mb-3" block>
+				<Subtitle1 as="h2" className="mb-3" block>
 					Oportunidades y Soluciones
-				</Title2>
-				<Text as="p" size={400}>
-					En el contexto de ResqBit S.A.S, presentamos el plan de costos global para la transición arquitectónica en la
-					Fase E de TOGAF, incluyendo diagnósticos, planeación, evaluación y consolidación.
+				</Subtitle1>
+			</div>
+
+			<div className="mb-4">
+				<Subtitle2 as="h3" className="mb-3" block>
+					Oportunidades Identificadas
+				</Subtitle2>
+				<Text as="p" size={400} className="mb-3" block>
+					En el análisis realizado durante las fases B, C y D se identificaron oportunidades que permitirán aumentar la
+					eficiencia sin ampliar la carga operativa:
+				</Text>
+
+				<div className="row gx-2 gy-2 mb-3">
+					<div className="col-12">
+						<KeyActivityItem
+							index={1}
+							force={{
+								title: "Integración de Sistemas",
+								desc: [
+									"Integrar CRM, Jira y SharePoint para reducir duplicidad de registros y reprocesos en la gestión de clientes y proyectos.",
+								],
+							}}
+						/>
+					</div>
+					<div className="col-12">
+						<KeyActivityItem
+							index={2}
+							force={{
+								title: "Automatización de Reportes",
+								desc: [
+									"Automatizar la consolidación de datos en Power BI para minimizar manipulación manual en informes y reportes.",
+								],
+							}}
+						/>
+					</div>
+					<div className="col-12">
+						<KeyActivityItem
+							index={3}
+							force={{
+								title: "Gestión Documental",
+								desc: [
+									"Formalizar flujos de envío y versión de evidencias en SharePoint, garantizando trazabilidad y consistencia documental.",
+								],
+							}}
+						/>
+					</div>
+					<div className="col-12">
+						<KeyActivityItem
+							index={4}
+							force={{
+								title: "Automatización Operativa",
+								desc: [
+									"Implementar flujos automatizados de notificaciones y seguimiento, reduciendo dependencia del monitoreo manual.",
+								],
+							}}
+						/>
+					</div>
+					<div className="col-12">
+						<KeyActivityItem
+							index={5}
+							force={{
+								title: "Fortalecimiento SIEM",
+								desc: ["Fortalecer el uso del SIEM para alertas tempranas y gestión coordinada de incidentes."],
+							}}
+						/>
+					</div>
+				</div>
+
+				<Text as="p" size={400} className="mb-4" block>
+					Estas oportunidades tienen impacto directo en reducción de tiempos, claridad operativa y escalabilidad en
+					servicios de auditoría, BI y ciberseguridad.
 				</Text>
 			</div>
 
-			<div className="row gx-2 gy-2 mb-4">
-				<div className="col-12 col-lg-4">
-					<Card appearance="outline" className="d-flex flex-column h-100">
-						<CardHeader
-							header={<Subtitle2 as="h3">Plan de Costos Global – Mapa de Transición Arquitectónica</Subtitle2>}
-						/>
+			<div className="mb-4">
+				<Subtitle2 as="h3" className="mb-3" block>
+					Soluciones Propuestas
+				</Subtitle2>
 
-						<article className="flex-grow-1" style={{ overflowY: "auto", maxHeight: "500px" }}>
-							<Text as="p" size={300} className="mb-3" block>
-								El siguiente plan detalla las actividades, objetivos y costos estimados para la transición
-								arquitectónica en PYMEs tecnológicas.
-							</Text>
-
-							<Accordion collapsible>
-								<AccordionItem value="1">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Diagnóstico y Análisis Inicial
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											Incluye: Análisis de brechas y primera parte de arquitecturas de transición. Objetivo: Entender el
-											estado actual y definir las etapas intermedias hacia el objetivo final. Actividades: Revisión,
-											entrevistas, modelado inicial. Costo estimado: $9,000 USD
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="2">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Planeación de Transición y Dependencias
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											Incluye: Segunda parte de arquitecturas de transición y matriz de dependencias. Objetivo:
-											Establecer relaciones entre proyectos, dependencias y prioridades. Actividades: Identificación de
-											dependencias, creación de matriz, validación técnica. Costo estimado: $6,000 USD
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="3">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Evaluación de Implementación y Valor
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											Incluye: Evaluación de implementación y evaluación de impacto y valor. Objetivo: Planificar el
-											orden, responsables y tiempos; medir el valor, costo y riesgo de cada iniciativa. Actividades:
-											Plan maestro, análisis de ROI/TCO, gestión de riesgos. Costo estimado: $9,600 USD
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="4">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Consolidación y Paquetes de Trabajo
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											Incluye: Paquetes de trabajo y documentación final. Objetivo: Agrupar proyectos por afinidad,
-											establecer entregables y plan de ejecución. Actividades: Definición de lotes, documentación y
-											cierre del plan de transición. Costo estimado: $2,700 USD
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-							</Accordion>
-						</article>
-
-						<MessageBar shape="rounded" className="w-100">
-							<MessageBarBody>
-								<MessageBarTitle>Total Global Estimado</MessageBarTitle>
-								$27,300 USD
-							</MessageBarBody>
-						</MessageBar>
-					</Card>
+				<div className="table-responsive">
+					<Table>
+						<TableHeader>
+							<TableRow>
+								<TableHeaderCell>
+									<Body1Strong>Solución</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Descripción</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Impacto esperado</Body1Strong>
+								</TableHeaderCell>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow>
+								<TableCell>Integración CRM / Jira / SharePoint</TableCell>
+								<TableCell>Sincronización automática de clientes, proyectos y entregables</TableCell>
+								<TableCell>Menos reprocesos y mayor trazabilidad</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Automatización de cargas y reportes Power BI</TableCell>
+								<TableCell>Uso de Dataflows + actualizaciones programadas</TableCell>
+								<TableCell>Informes disponibles sin intervención manual</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Modelo formal de gestión documental</TableCell>
+								<TableCell>Estructura de repositorio + permisos + nomenclatura + control de versiones</TableCell>
+								<TableCell>Evidencias organizadas y auditables</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Automatización operativa (Power Automate / n8n)</TableCell>
+								<TableCell>Recordatorios, seguimiento de tareas, avisos de vencimientos</TableCell>
+								<TableCell>Menos carga repetitiva y mayor consistencia</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Fortalecimiento de monitoreo SIEM</TableCell>
+								<TableCell>Ajuste de reglas, dashboards y alertas</TableCell>
+								<TableCell>Respuesta oportuna y reducción de riesgo</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
 				</div>
+			</div>
 
-				<div className="col-12 col-lg-4">
-					<Card appearance="outline" className="d-flex flex-column h-100">
-						<CardHeader
-							header={
-								<Subtitle2 as="h3">Principales Incertidumbres en una Transformación Digital de Auditoría</Subtitle2>
-							}
-						/>
+			<div className="mb-4">
+				<Subtitle2 as="h3" className="mb-3" block>
+					Estimación de Costos (USD)
+				</Subtitle2>
+				<Text as="p" size={400} className="mb-3" block>
+					Los costos se enfocan en horas de servicio, capacitación y configuración, dado que la infraestructura y las
+					licencias principales ya existen.
+				</Text>
 
-						<article className="flex-grow-1" style={{ overflowY: "auto", maxHeight: "500px" }}>
-							<Text as="p" size={300} className="mb-3" block>
-								Las siguientes incertidumbres deben ser consideradas en la transformación digital de auditoría.
-							</Text>
-
-							<Accordion collapsible>
-								<AccordionItem value="1">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Incertidumbre Tecnológica
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											<strong>Qué es:</strong> Dudas sobre qué tecnologías serán sostenibles, seguras y rentables a
-											largo plazo (por ejemplo, IA, automatización, blockchain o análisis predictivo).
-											<br />
-											<strong>Cómo afrontarla:</strong>
-											<ul>
-												<li>Realizar prototipos y pruebas piloto antes de escalar.</li>
-												<li>
-													Adoptar un enfoque modular y flexible (arquitectura orientada a servicios o microservicios).
-												</li>
-												<li>Usar marcos de referencia reconocidos (TOGAF, COBIT, ITIL).</li>
-												<li>Evaluar proveedores con criterios de madurez tecnológica y soporte futuro.</li>
-											</ul>
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="2">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Incertidumbre en el Retorno de la Inversión (ROI)
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											<strong>Qué es:</strong> Dificultad para medir si la automatización realmente reducirá costos,
-											aumentará la calidad o atraerá más clientes.
-											<br />
-											<strong>Cómo afrontarla:</strong>
-											<ul>
-												<li>
-													Definir KPIs claros (eficiencia de revisión, tiempo por auditoría, errores detectados,
-													satisfacción del cliente).
-												</li>
-												<li>Implementar fases iterativas (quick wins) para validar beneficios tangibles.</li>
-												<li>Realizar análisis de costo-beneficio continuo (ROI, TCO).</li>
-												<li>Crear un comité de valor que supervise resultados cada trimestre.</li>
-											</ul>
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="3">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Incertidumbre Cultural y Humana
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											<strong>Qué es:</strong> Incertidumbre sobre cómo reaccionará el personal ante la automatización
-											(temor, resistencia o pérdida de control).
-											<br />
-											<strong>Cómo afrontarla:</strong>
-											<ul>
-												<li>
-													Diseñar una estrategia de gestión del cambio (capacitación, comunicación y acompañamiento).
-												</li>
-												<li>Involucrar al personal desde el inicio en pruebas piloto.</li>
-												<li>Crear embajadores digitales (líderes internos que impulsen el cambio).</li>
-												<li>Mostrar beneficios personales: menos tareas repetitivas, más análisis estratégico.</li>
-											</ul>
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="4">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Incertidumbre Regulatoria y Ética
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											<strong>Qué es:</strong> Dudas sobre si las tecnologías automatizadas cumplen con las normativas
-											contables, fiscales, de datos o de confidencialidad.
-											<br />
-											<strong>Cómo afrontarla:</strong>
-											<ul>
-												<li>
-													Consultar con expertos legales y reguladores antes de implementar sistemas automatizados.
-												</li>
-												<li>Mantener auditorías paralelas (manual y digital) durante el periodo de transición.</li>
-												<li>Implementar políticas de gobernanza de datos y ética algorítmica.</li>
-												<li>Alinear el proceso con estándares como ISO 27001, ISAE 3402, GDPR.</li>
-											</ul>
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="5">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Incertidumbre del Cliente o del Mercado
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<div>
-											<strong>Qué es:</strong> No saber si los clientes confiarán en auditorías más digitalizadas o
-											automatizadas.
-											<br />
-											<strong>Cómo afrontarla:</strong>
-											<ul>
-												<li>Educar al cliente sobre la fiabilidad y trazabilidad de los procesos digitales.</li>
-												<li>Asegurar transparencia: mostrar cómo se generan los resultados automatizados.</li>
-												<li>Ofrecer servicios híbridos (digital + revisión humana) durante el periodo de adopción.</li>
-												<li>Destacar la mayor rapidez y precisión como ventaja competitiva.</li>
-											</ul>
-										</div>
-									</AccordionPanel>
-								</AccordionItem>
-							</Accordion>
-						</article>
-					</Card>
+				<div className="table-responsive">
+					<Table>
+						<TableHeader>
+							<TableRow>
+								<TableHeaderCell>
+									<Body1Strong>Rubro</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Alcance</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Costo Estimado (USD)</Body1Strong>
+								</TableHeaderCell>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow>
+								<TableCell>Integración CRM ↔ Jira ↔ SharePoint</TableCell>
+								<TableCell>Configuración y flujos automatizados</TableCell>
+								<TableCell>$600 – $1,200</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Automatización Power BI (Dataflows / DWH Lite)</TableCell>
+								<TableCell>ETL, modelado y actualización automática</TableCell>
+								<TableCell>$400 – $900</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Formalización del Repositorio de Evidencias</TableCell>
+								<TableCell>Plantillas + control de versiones + permisos</TableCell>
+								<TableCell>$200 – $600</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Automatización operativa (Power Automate / n8n)</TableCell>
+								<TableCell>Recordatorios + aprobaciones + notificaciones</TableCell>
+								<TableCell>$300 – $700</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Fortalecimiento SIEM (Wazuh / Splunk Lightweight)</TableCell>
+								<TableCell>Reglas de alerta + tableros y correlación</TableCell>
+								<TableCell>$500 – $1,000</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
 				</div>
+			</div>
 
-				<div className="col-12 col-lg-4">
-					<Card appearance="outline" className="d-flex flex-column h-100">
-						<CardHeader header={<Subtitle2 as="h3">Obstáculos en la Transformación Digital</Subtitle2>} />
+			<div className="mb-4">
+				<Subtitle2 as="h3" className="mb-3" block>
+					Roadmap de Implementación
+				</Subtitle2>
 
-						<article className="flex-grow-1" style={{ overflowY: "auto", maxHeight: "500px" }}>
-							<Text as="p" size={300} className="mb-3" block>
-								Principales obstáculos tecnológicos, organizacionales, de procesos y regulatorios.
-							</Text>
-
-							<Accordion collapsible>
-								<AccordionItem value="1">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Obstáculos Tecnológicos
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<ul>
-											<li>
-												Infraestructura obsoleta: Sistemas heredados (legacy) que no son compatibles con nuevas
-												plataformas digitales.
-											</li>
-											<li>
-												Integración de sistemas: Dificultades para conectar herramientas de auditoría tradicionales con
-												nuevas tecnologías (IA, RPA, analítica de datos, blockchain, etc.).
-											</li>
-											<li>
-												Falta de estándares o automatización previa: Procesos aún manuales que requieren rediseño antes
-												de ser digitalizados.
-											</li>
-											<li>
-												Ciberseguridad y protección de datos: Riesgos asociados al manejo de información confidencial de
-												clientes en entornos digitales o en la nube.
-											</li>
-											<li>
-												Costos iniciales altos: Inversión significativa en licencias, infraestructura, migración de
-												datos y consultoría tecnológica.
-											</li>
-										</ul>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="2">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Obstáculos Organizacionales y Culturales
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<ul>
-											<li>
-												Resistencia al cambio: Personal acostumbrado a metodologías tradicionales y temor a perder
-												relevancia frente a la automatización.
-											</li>
-											<li>
-												Falta de liderazgo digital: Directivos que no impulsan activamente la adopción tecnológica o
-												carecen de visión digital clara.
-											</li>
-											<li>
-												Falta de competencias digitales: Carencia de habilidades en análisis de datos, uso de
-												herramientas de automatización y gestión de proyectos tecnológicos.
-											</li>
-											<li>
-												Desalineación interna: Áreas de auditoría, TI y operaciones trabajando de forma aislada o con
-												objetivos distintos.
-											</li>
-										</ul>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="3">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Obstáculos de Procesos y Gobernanza
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<ul>
-											<li>
-												Procesos no estandarizados: Variabilidad en la forma de ejecutar auditorías entre equipos o
-												sucursales, dificultando la automatización.
-											</li>
-											<li>
-												Falta de un marco de transformación claro: Ausencia de una hoja de ruta (roadmap) o gobierno del
-												cambio digital.
-											</li>
-											<li>
-												Gestión inadecuada del cambio: No se comunica adecuadamente la visión, beneficios ni fases del
-												proceso al personal.
-											</li>
-											<li>
-												Dependencia de terceros: Proveedores de software o consultores que imponen sus ritmos o
-												soluciones poco adaptadas al negocio.
-											</li>
-										</ul>
-									</AccordionPanel>
-								</AccordionItem>
-
-								<AccordionItem value="4">
-									<AccordionHeader>
-										<Text as="h4" weight="semibold" className="m-0">
-											Obstáculos Regulatorios y de Confianza
-										</Text>
-									</AccordionHeader>
-									<AccordionPanel>
-										<ul>
-											<li>
-												Cumplimiento normativo: Dificultad para adaptar procesos automatizados a regulaciones contables,
-												fiscales y de confidencialidad.
-											</li>
-											<li>
-												Auditorías digitales no reconocidas: Los entes reguladores pueden exigir métodos tradicionales
-												de validación.
-											</li>
-											<li>
-												Riesgo reputacional: Si una automatización falla (por error de datos o interpretación), puede
-												afectar la confianza de los clientes.
-											</li>
-										</ul>
-									</AccordionPanel>
-								</AccordionItem>
-							</Accordion>
-						</article>
-					</Card>
+				<div className="table-responsive">
+					<Table>
+						<TableHeader>
+							<TableRow>
+								<TableHeaderCell>
+									<Body1Strong>Horizonte</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Periodo</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Enfoque</Body1Strong>
+								</TableHeaderCell>
+								<TableHeaderCell>
+									<Body1Strong>Entregables Clave</Body1Strong>
+								</TableHeaderCell>
+							</TableRow>
+						</TableHeader>
+						<TableBody>
+							<TableRow>
+								<TableCell>Corto Plazo (0–6 meses)</TableCell>
+								<TableCell>Organización y estandarización</TableCell>
+								<TableCell>Consolidar control documental y primeras automatizaciones</TableCell>
+								<TableCell>
+									- Manual de estructura documental en SharePoint
+									<br />
+									- Matriz de permisos y accesos por rol
+									<br />
+									- Plantillas estandarizadas de informes, hallazgos y actas
+									<br />
+									- Checklist operativo para auditorías y proyectos
+									<br />- Primer flujo automatizado (notificaciones / vencimientos)
+								</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Mediano Plazo (6–12 meses)</TableCell>
+								<TableCell>Integración y sincronización</TableCell>
+								<TableCell>Reducir reprocesos y manipulación manual de datos</TableCell>
+								<TableCell>
+									- Integración CRM ↔ Jira ↔ SharePoint activa
+									<br />
+									- Dataflows configurados y actualización automática de Power BI
+									<br />
+									- Tableros ejecutivos con KPIs de clientes y proyectos
+									<br />
+									- Procedimiento formal de carga y validación de datos
+									<br />- Automatización de actos administrativos y planes de mejora
+								</TableCell>
+							</TableRow>
+							<TableRow>
+								<TableCell>Largo Plazo (12–24 meses)</TableCell>
+								<TableCell>Escalabilidad y maduración</TableCell>
+								<TableCell>Seguridad continua y operación eficiente en crecimiento</TableCell>
+								<TableCell>
+									- Reglas de correlación y alertas configuradas en SIEM
+									<br />
+									- Panel de monitoreo de vulnerabilidades en operación
+									<br />
+									- Procedimiento formal de respuesta a incidentes (CSIRT-lite)
+									<br />
+									- Capacitación interna en operación segura y uso de SIEM
+									<br />- Informe de madurez tecnológica + plan de mejora continua
+								</TableCell>
+							</TableRow>
+						</TableBody>
+					</Table>
 				</div>
+			</div>
+
+			<div className={classes.imageContainer}>
+				<img
+					src={image}
+					alt="Roadmap de Implementación"
+					className={classes.image}
+				/>
+			</div>
+
+			<div className="mb-4">
+				<Subtitle2 as="h3" className="mb-3" block>
+					Gestión de la Incertidumbre y el Riesgo
+				</Subtitle2>
+				<Text as="p" size={400} className="mb-3" block>
+					La ejecución de la arquitectura propuesta se encuentra sujeta a fuentes naturales de incertidumbre asociadas a
+					la adopción de nuevas prácticas organizacionales, la variabilidad en los niveles de madurez digital de los
+					clientes atendidos y la evolución permanente de los estándares de cumplimiento y seguridad. Para mitigar estos
+					elementos, se adopta un enfoque de implementación progresiva, donde cada fase se estructura de manera
+					secuencial y dependiente del grado de consolidación alcanzado en la anterior. La estandarización temprana de
+					la documentación y de los procedimientos operativos reduce la dependencia del conocimiento tácito y favorece
+					la replicabilidad de los procesos, lo que disminuye la variabilidad en los resultados.
+				</Text>
+				<Text as="p" size={400} className="mb-3" block>
+					Asimismo, la capacitación se plantea bajo un modelo de transferencia gradual de competencias, en el cual el
+					aprendizaje se produce en contexto, durante la ejecución de actividades reales, fortaleciendo la apropiación
+					práctica y la sostenibilidad del cambio. La incorporación de herramientas de monitoreo continuo, como el SIEM
+					y los dashboards de vulnerabilidades, permite la identificación temprana de desviaciones, incidentes y
+					brechas, facilitando la activación de protocolos de respuesta coordinada antes de que los riesgos escalen en
+					impacto. Finalmente, el cierre del ciclo se consolida mediante la evaluación periódica de la madurez
+					tecnológica y la actualización del plan de mejora continua, asegurando que la arquitectura se mantenga
+					adaptable frente a transformaciones del entorno y las necesidades del mercado.
+				</Text>
 			</div>
 		</div>
 	);

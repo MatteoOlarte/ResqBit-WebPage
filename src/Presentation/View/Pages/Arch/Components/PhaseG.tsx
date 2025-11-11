@@ -161,27 +161,6 @@ function PhaseG() {
 
 			<div className="mb-4">
 				<Subtitle2 className="mb-1" block>
-					Entregables
-				</Subtitle2>
-
-				<DataGrid items={deliverables} columns={columns} style={{ minWidth: "100%" }}>
-					<DataGridHeader>
-						<DataGridRow>
-							{({ renderHeaderCell }) => <DataGridHeaderCell>{renderHeaderCell()}</DataGridHeaderCell>}
-						</DataGridRow>
-					</DataGridHeader>
-					<DataGridBody<Deliverable>>
-						{({ item, rowId }) => (
-							<DataGridRow<Deliverable> key={rowId}>
-								{({ renderCell }) => <DataGridCell>{renderCell(item)}</DataGridCell>}
-							</DataGridRow>
-						)}
-					</DataGridBody>
-				</DataGrid>
-			</div>
-
-			<div className="mb-4">
-				<Subtitle2 className="mb-1" block>
 					Integración con ITIL 4.0
 				</Subtitle2>
 

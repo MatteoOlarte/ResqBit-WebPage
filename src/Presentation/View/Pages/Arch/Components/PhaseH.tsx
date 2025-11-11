@@ -51,7 +51,7 @@ const data: KeyActivityItemType[] = [
 		title: "Clasificación del cambio",
 		desc: [
 			"Cambio menor: ajustes a configuraciones o políticas internas.",
-			"Cambio mayor: adopción de nuevas tecnologías, procesos o servicios (ejemplo: migrar de OpenVAS a Tenable).",
+			"Cambio mayor: adopción de nuevas tecnologías, procesos o servicios.",
 		],
 	},
 	{
