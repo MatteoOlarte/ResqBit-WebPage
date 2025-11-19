@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "1.0.1",
 	"type": "module",
+	"homepage": "https://matteoolarte.github.io/ResqBit-WebPage/",
 	"scripts": {
 		"dev": "vite",
 		"build": "tsc -b && vite build",
