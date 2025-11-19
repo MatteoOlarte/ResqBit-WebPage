@@ -1,5 +1,6 @@
 import {
 	Body1Strong,
+	Card,
 	Subtitle1,
 	Subtitle2,
 	Table,
@@ -11,69 +12,6 @@ import {
 	TableRow,
 	Text,
 } from "@fluentui/react-components";
-
-const informationTypes = [
-	{
-		title: "Información Operativa del Cliente",
-		description: "Documentos corporativos, organigramas, procesos internos, políticas y métricas clave.",
-	},
-	{
-		title: "Información de Auditoría y Seguridad",
-		description:
-			"Evidencias recopiladas durante auditorías, reportes de vulnerabilidades, resultados de escaneos, incidentes y planes de acción correctiva.",
-	},
-	{
-		title: "Información Analítica",
-		description: "Bases de datos modeladas, indicadores de desempeño, tableros dinámicos y reportes gerenciales.",
-	},
-	{
-		title: "Información Interna de Gestión Administrativa",
-		description:
-			"Contratos, acuerdos de confidencialidad, registros financieros, documentación de proyectos y actas de seguimiento.",
-	},
-];
-
-const dataManagementPrinciples = [
-	{
-		title: "Confidencialidad",
-		description: "El acceso a la información se establece según roles y niveles de intervención.",
-	},
-	{
-		title: "Integridad",
-		description: "Toda información utilizada se verifica y versiona, evitando duplicidades e inconsistencias.",
-	},
-	{
-		title: "Disponibilidad",
-		description: "Los datos se almacenan en repositorios centralizados, con respaldo y recuperación asegurada.",
-	},
-	{
-		title: "Trazabilidad",
-		description: "Cada documento cuenta con control de versiones y registro de modificaciones.",
-	},
-];
-
-const repositories = [
-	{
-		title: "SharePoint (Microsoft 365)",
-		description: "Repositorio maestro de documentos, hallazgos, políticas y evidencias.",
-	},
-	{
-		title: "GitHub Privado",
-		description: "Gestión de versiones, configuraciones y elementos técnicos.",
-	},
-	{
-		title: "Azure SQL / Dataflows",
-		description: "Almacenamiento estructurado para análisis y modelamiento de datos.",
-	},
-	{
-		title: "Power BI",
-		description: "Plataforma para visualización y construcción de reportes gerenciales y operativos.",
-	},
-	{
-		title: "SIEM (Wazuh / Splunk) + OpenVAS",
-		description: "Almacenamiento y monitoreo de eventos y vulnerabilidades de seguridad.",
-	},
-];
 
 const applicationsData = [
 	{
@@ -121,75 +59,18 @@ function PhaseC() {
 					Information Systems Architecture
 				</Subtitle1>
 
-				{/* Tipos de Información Administrada */}
-				<Subtitle2 className="mb-2" block>
-					Tipos de Información Administrada
-				</Subtitle2>
-
-				<Text as="p" size={400} className="mb-3" block>
-					ResQBit gestiona información agrupada en cuatro dominios principales:
-				</Text>
-
-				<ol className="mb-4">
-					{informationTypes.map((item, index) => (
-						<li key={index} className="mb-2">
-							<Body1Strong>{item.title}: </Body1Strong>
-							<Text as="span" size={400}>
-								{item.description}
-							</Text>
-						</li>
-					))}
-				</ol>
-			</div>
-
-			{/* Principios de Gestión de Datos */}
-			<div className="mb-4">
-				<Subtitle2 className="mb-2" block>
-					Principios de Gestión de Datos
-				</Subtitle2>
-
-				<ol className="mb-3">
-					{dataManagementPrinciples.map((item, index) => (
-						<li key={index} className="mb-2">
-							<Body1Strong>{item.title}: </Body1Strong>
-							<Text as="span" size={400}>
-								{item.description}
-							</Text>
-						</li>
-					))}
-				</ol>
-			</div>
-
-			{/* Repositorios y Almacenamiento */}
-			<div className="mb-4">
-				<Subtitle2 className="mb-2" block>
-					Repositorios y Almacenamiento
-				</Subtitle2>
-
-				<ol className="mb-3">
-					{repositories.map((item, index) => (
-						<li key={index} className="mb-2">
-							<Body1Strong>{item.title}: </Body1Strong>
-							<Text as="span" size={400}>
-								{item.description}
-							</Text>
-						</li>
-					))}
-				</ol>
-
 				<Text as="p" size={400} className="mb-4" block>
-					En este modelo, la información no se almacena localmente en equipos individuales, sino que se gestiona desde
-					repositorios centralizados, garantizando control, respaldo y continuidad.
+					ResQBit cuenta con una base tecnológica funcional pero fragmentada. El entorno As-Is se caracteriza por el uso
+					de múltiples herramientas que operan de manera independiente, como Microsoft 365 (Teams, SharePoint, Outlook)
+					para la colaboración interna, Power BI para el análisis de datos, OpenVAS/Nessus para la detección de
+					vulnerabilidades, Helisa para la gestión contable y Jira para el seguimiento de proyectos. Si bien estas
+					aplicaciones permiten realizar las actividades esenciales del negocio, la falta de una integración completa
+					entre ellas genera redundancia de información, dificultades de trazabilidad y procesos manuales que afectan la
+					eficiencia operativa. vos estratégicos planteados.
 				</Text>
-			</div>
 
-			{/* Arquitectura de Aplicaciones */}
-			<div className="mb-4">
-				<Subtitle2 className="mb-3" block>
-					Arquitectura de Aplicaciones
-				</Subtitle2>
-
-				<div className="table-responsive">
+				{/* Arquitectura de Aplicaciones Table */}
+				<div className="table-responsive mb-4">
 					<Table size="small" aria-label="Arquitectura de Aplicaciones">
 						<TableHeader>
 							<TableRow>
@@ -223,6 +104,211 @@ function PhaseC() {
 						</TableBody>
 					</Table>
 				</div>
+			</div>
+
+			{/* Panorama Actual */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Panorama Actual
+				</Subtitle2>
+
+				<Text as="p" size={400} className="mb-3" block>
+					ResQBit cuenta con una base tecnológica funcional pero fragmentada. Actualmente, la compañía opera con
+					múltiples herramientas independientes:
+				</Text>
+
+				<ul className="mb-3">
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Microsoft 365 (Teams, SharePoint, Outlook) para la colaboración interna.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Power BI para el análisis de datos.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							OpenVAS/Nessus para la detección de vulnerabilidades.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Helisa para la gestión contable.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Jira para el seguimiento de proyectos.
+						</Text>
+					</li>
+				</ul>
+
+				<Text as="p" size={400} className="mb-4" block>
+					Aunque estas aplicaciones permiten cumplir con las actividades esenciales, la falta de integración entre ellas
+					genera redundancia de información, baja trazabilidad y procesos manuales que reducen la eficiencia operativa.
+				</Text>
+			</div>
+
+			{/* Arquitectura Futura */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Arquitectura Futura
+				</Subtitle2>
+
+				<Text as="p" size={400} className="mb-4" block>
+					La evolución tecnológica de ResQBit contempla la integración progresiva de sistemas y automatización de
+					procesos mediante herramientas como Wazuh o Splunk para la gestión de incidentes y monitoreo continuo.
+					<br />
+					<br />
+					Las auditorías técnicas continuarán realizándose con OpenVAS/Nessus, ahora enlazadas con Power BI para generar
+					reportes automatizados.
+					<br />
+					<br />
+					El dominio financiero y administrativo se soportará en Helisa o Zoho Books, complementado con la gestión de
+					talento humano en Factorial o Zoho People, sincronizados mediante automatizaciones que garanticen coherencia
+					de datos entre finanzas, proyectos y personal.
+				</Text>
+			</div>
+
+			{/* Arquitectura de Datos Centralizada */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Arquitectura de Datos Centralizada
+				</Subtitle2>
+
+				<Text as="p" size={400} className="mb-3" block>
+					La Arquitectura de Datos se concibe como el núcleo del sistema de información de ResQBit.
+					<br />
+					<br />
+					Su estructura To-Be estará conformada por un Data Warehouse alojado en Microsoft Azure, donde convergerá la
+					información de auditorías, proyectos, clientes, finanzas y seguridad.
+					<br />
+					<br />
+					Los procesos de integración (ETL/ELT) se realizarán mediante Power Query, Azure Data Factory o dbt, asegurando
+					calidad, coherencia y trazabilidad de los datos.
+					<br />
+					<br />
+					Desde esta base se generarán modelos analíticos dinámicos en Power BI, que permitirán monitorear indicadores
+					clave (KPIs) como:
+				</Text>
+
+				<ul className="mb-4">
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Satisfacción del cliente
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Tiempos de ejecución
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Nivel de automatización
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Cumplimiento normativo ISO
+						</Text>
+					</li>
+				</ul>
+			</div>
+
+			{/* Seguridad y Cumplimiento */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Seguridad y Cumplimiento
+				</Subtitle2>
+
+				<Card appearance="filled" className="mb-3 text-center">
+					<Text as="p" size={400} className="mb-0">
+						La arquitectura futura contemplará medidas avanzadas para garantizar la confidencialidad, integridad y
+						disponibilidad de la información.
+					</Text>
+				</Card>
+
+				<ul className="mb-4">
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Autenticación multifactor (MFA)
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Encriptación de datos en tránsito y en reposo
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Copias de respaldo automáticas en la nube
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Controles de acceso basados en roles (RBAC)
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Auditorías periódicas alineadas con ISO 27001
+						</Text>
+					</li>
+				</ul>
+			</div>
+
+			{/* Interoperabilidad de Aplicaciones */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Interoperabilidad de Aplicaciones
+				</Subtitle2>
+
+				<Text as="p" size={400} className="mb-4" block>
+					La integración entre sistemas será un pilar estratégico.
+					<br />
+					<br />A través de conectores y servicios web, se enlazarán los flujos de trabajo entre CRM, Jira, SharePoint y
+					Power BI, eliminando duplicidades y automatizando tareas repetitivas para lograr una operación más ágil y
+					coordinada.
+				</Text>
+			</div>
+
+			{/* Gobernanza de Datos */}
+			<div className="mb-4">
+				<Subtitle2 className="mb-3" block>
+					Gobernanza de Datos
+				</Subtitle2>
+
+				<Text as="p" size={400} className="mb-3" block>
+					ResQBit implementará políticas de gobernanza y calidad de datos que aseguren la trazabilidad y cumplimiento
+					normativo.
+				</Text>
+
+				<Text as="p" size={400} className="mb-3" block>
+					Entre las principales acciones se incluyen:
+				</Text>
+
+				<ul className="mb-4">
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Creación de un Catálogo de Datos Empresarial con documentación sobre fuentes, propietarios y ciclos de
+							vida.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Definición de métricas de calidad que evalúen la completitud, precisión y consistencia de la información.
+						</Text>
+					</li>
+					<li className="mb-2">
+						<Text as="span" size={400}>
+							Establecimiento de protocolos de actualización, almacenamiento y eliminación de datos para mantener una
+							base confiable y alineada con los estándares internacionales.
+						</Text>
+					</li>
+				</ul>
 			</div>
 		</>
 	);
