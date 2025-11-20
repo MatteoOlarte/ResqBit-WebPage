@@ -11,7 +11,8 @@ import Services from "@Presentation/View/Pages/Services";
 import SIG from "@Presentation/View/Pages/SIG/SIG";
 import Strategies from "@Presentation/View/Pages/Strategies/Strategies";
 import { GlobalProvider } from "@Presentation/ViewModel/GlobalContext";
-import { BrowserRouter, useRoutes } from "react-router-dom";
+import { useEffect } from "react";
+import { BrowserRouter, useLocation, useRoutes } from "react-router-dom";
 import { GlobalContext } from "../ViewModel/GlobalContext";
 import { useRequiredContext } from "../ViewModel/Utils/useRequiredContext";
 
@@ -20,12 +21,23 @@ function App() {
 		<FluentProvider theme={resqBitLightTheme}>
 			<BrowserRouter basename="/ResqBit-WebPage">
 				<GlobalProvider>
+					<ScrollToTop />
 					<Header />
 					<Routes />
 				</GlobalProvider>
 			</BrowserRouter>
 		</FluentProvider>
 	);
+}
+
+function ScrollToTop() {
+	const { pathname } = useLocation();
+
+	useEffect(() => {
+		window.scrollTo(0, 0);
+	}, [pathname]);
+
+	return null;
 }
 
 function Header() {
@@ -39,7 +51,7 @@ function Header() {
 }
 
 const Routes = () => {
-	let routes = useRoutes([
+	const routes = useRoutes([
 		{ path: "/", element: <Home /> },
 		{ path: "/services", element: <Services /> },
 		{ path: "/reviews", element: <Reviews /> },
